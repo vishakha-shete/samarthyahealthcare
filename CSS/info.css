@@ -1,0 +1,48 @@
+.about-company {
+    padding: 60px 20px;
+    background: #f9f9f9;
+    color: #333;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  }
+  
+  .about-company .container {
+    max-width: 1000px;
+    margin: 0 auto;
+    text-align: left;
+  }
+  
+  .about-company h2 {
+    font-size: 2rem;
+    color: #2c3e50;
+    margin-bottom: 20px;
+    border-left: 5px solid #27ae60;
+    padding-left: 15px;
+  }
+  
+  .about-company p {
+    font-size: 1.1rem;
+    line-height: 1.8;
+    margin-bottom: 15px;
+  }
+  
+  .about-company .features {
+    list-style: none;
+    margin-top: 20px;
+    padding-left: 0;
+  }
+  
+  .about-company .features li {
+    font-size: 1.1rem;
+    margin: 12px 0;
+    background: #ffffff;
+    padding: 12px 15px;
+    border-radius: 8px;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+    transition: transform 0.2s ease-in-out;
+  }
+  
+  .about-company .features li:hover {
+    transform: translateX(5px);
+    background: #eafaf1;
+  }
+  
