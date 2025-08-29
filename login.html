@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Login</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Poppins', sans-serif;
+    }
+    body {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      background: #f3f4f6;
+    }
+    .login-container {
+      width: 380px;
+      padding: 30px;
+      background: #fff;
+      border-radius: 12px;
+      box-shadow: 0px 5px 15px rgba(0,0,0,0.1);
+      text-align: center;
+    }
+    .login-container h2 {
+      margin-bottom: 20px;
+      font-weight: 600;
+      font-size: 24px;
+      color: #333;
+    }
+    .input-group {
+      margin-bottom: 15px;
+      text-align: left;
+    }
+    .input-group label {
+      font-size: 14px;
+      color: #555;
+    }
+    .input-group input {
+      width: 100%;
+      padding: 12px;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+      margin-top: 5px;
+      font-size: 14px;
+    }
+    .forgot {
+      display: block;
+      text-align: right;
+      margin-top: -10px;
+      margin-bottom: 15px;
+      font-size: 13px;
+      color: #009688;
+      text-decoration: none;
+    }
+    .login-btn {
+      width: 100%;
+      padding: 12px;
+      border: none;
+      border-radius: 8px;
+      background: #009688;
+      color: white;
+      font-size: 16px;
+      cursor: pointer;
+      font-weight: 600;
+      transition: 0.3s;
+    }
+    .login-btn:hover {
+      background: #574b90;
+    }
+    .divider {
+      margin: 20px 0;
+      font-size: 13px;
+      color: #aaa;
+      position: relative;
+    }
+    .divider::before, .divider::after {
+      content: "";
+      position: absolute;
+      width: 40%;
+      height: 1px;
+      background: #ddd;
+      top: 50%;
+    }
+    .divider::before { left: 0; }
+    .divider::after { right: 0; }
+    .social-login {
+      display: flex;
+      justify-content: space-between;
+    }
+    .social-btn {
+      flex: 1;
+      margin: 0 5px;
+      padding: 10px;
+      border-radius: 8px;
+      border: 1px solid #ccc;
+      cursor: pointer;
+      font-size: 14px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 8px;
+      background: #fff;
+      transition: 0.3s;
+    }
+    .social-btn:hover {
+      background: #f3f4f6;
+    }
+    .create-account {
+      margin-top: 20px;
+      font-size: 14px;
+    }
+    .create-account a {
+      color: #009688;
+      text-decoration: none;
+      font-weight: 600;
+    }
+  </style>
+</head>
+<body>
+  <div class="login-container">
+    <h2>Login</h2>
+    <form>
+      <div class="input-group">
+        <label>Email *</label>
+        <input type="email" placeholder="Enter your email" required>
+      </div>
+      <div class="input-group">
+        <label>Password *</label>
+        <input type="password" placeholder="Enter your password" required>
+      </div>
+      <a href="#" class="forgot">Forgot your password?</a>
+      <button type="submit" class="login-btn">Sign In</button>
+    </form>
+
+    <div class="divider">OR</div>
+
+    <div class="social-login">
+      <button class="social-btn"><img src="https://img.icons8.com/color/20/google-logo.png"/> Google</button>
+      <button class="social-btn"><img src="https://img.icons8.com/color/20/facebook-new.png"/> Facebook</button>
+      <button class="social-btn"><img src="https://img.icons8.com/color/20/linkedin.png"/> LinkedIn</button>
+    </div>
+
+    <div class="create-account">
+      Don't have an account? <a href="#">Create account</a>
+    </div>
+  </div>
+</body>
+</html>

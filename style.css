@@ -18,7 +18,7 @@ body {background:var(--bg);color:var(--text);line-height:1.6;}
 
 a{color:inherit;text-decoration:none;}
 
-.navbar {background:hwb(0 71% 5%);position:sticky;}
+.navbar {background:hwb(0 95% 5%);position:sticky;}
 .navbar-main {display:flex;align-items:center;justify-content:space-between;}
 .brand {display:flex;align-items:center;gap: 10px; justify-items: left;}
 .logo {height: 70px;width:70px;object-fit:contain; }
@@ -42,7 +42,7 @@ a{color:inherit;text-decoration:none;}
 .navbar {
   display: flex;
   justify-content: space-between;
-  background-color:hwb(0 71% 5%);
+  background-color: white;
   align-items: center;
   padding: 15px 30px;
   padding-left: 100px;
@@ -52,47 +52,34 @@ a{color:inherit;text-decoration:none;}
   top: 0;
   left: 0;
   width: 100%;
-  height: 80px; /* 👈 define navbar height */
-
-
-
-}
-
-
-/* Transparent for Home Page */
-body.home .navbar {
-  background: hwb(0 45% 42%);  /* semi-transparent */
-  backdrop-filter: blur(8px);  /* adds glass effect */
-  color: white;
+  height: 80px; /* navbar height */
 }
 
 /* Solid for Other Pages */
 body.other .navbar {
-  background: #69aceb;  /* choose brand color */
-  color: white;
+  background: #f01101;  
+  color: red;
 }
-
 
 .navbar .logo {
   display: flex;
   align-items: center;
-  padding-right: 70px;
+  padding-right: 80px;
 }
 
 .navbar .logo img {
-  width: 60px;
-  height: 60px;
-  border-radius: 70%;
+  width: 100px;
+  height: 70px;
   margin-right: 10px;
+  
 }
-
-
 
 /* Nav Links */
 .nav-links {
   list-style: none;
   display: flex;
   gap: 20px;
+  
 }
 
 .nav-links li a {
@@ -109,51 +96,74 @@ body.other .navbar {
 /* Mobile Toggle */
 .menu-toggle {
   display: none;
-  font-size: 28px;
+  font-size: 26px;
   cursor: pointer;
 }
 
 /* Responsive */
-@media (max-width: 768px) {
+@media (max-width: 800px) {
+  .navbar {
+    padding: 10px 20px; /* reduced left-right padding */
+  }
+
+  .nav-actions {
+    margin-left: auto; /* Pushes login button to extreme right */
+  }
   .menu-toggle {
     display: block;
-  padding: none;
+    padding-left: 170px;
   }
-  @media (max-width: 768px) {
-    /* Remove left-right padding in mobile */
-    .navbar {
-      padding: 3px 30px;  /* upar niche same rahe, left-right kam */
-    }
-  
-    .nav-links {
-      right: 0; /* menu align right ho jaye */
-    }
-  }
-  
 
   .nav-links {
     display: none;
     flex-direction: column;
     position: absolute;
-    top: 80px;
+    top: 80px; /* below navbar */
     right: 0;
-    width: 220px;
-    padding: 20px;
+    width: 200px;
+    padding: 15px;
+    border-radius: 8px;
+    background: #97dbd2; /* same as navbar */
   }
 
-  .nav-links.show {
+  .nav-links.active {
     display: flex;
   }
 
   .nav-links li {
     margin: 10px 0;
   }
-  nav.logo .img{
-padding: none;
-  }
 }
 
+/* Login Button */
+.login-btn {
+  background: #49def1;
+  color: #000;
+  padding: 6px 16px;
+  border-radius: 100px;
+  text-decoration: none;
+  image-rendering: 900;
+  transition: 0.3s;  
 
+  
+}
+
+.login-btn:hover {
+  background: #3541ec;
+  color: #000;
+}
+
+/* Responsive */
+@media (max-width: 800px){
+.login-btn {
+  display: block;
+  margin: 2px auto;
+  margin-right: 35px;
+  
+.nav-actions {
+  margin-left: auto; /* Pushes login button to extreme right */
+}
+}}
 
 .consult-form {
   margin-top: 30px;

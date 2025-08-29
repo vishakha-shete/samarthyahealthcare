@@ -13,10 +13,8 @@ document.querySelector('.contact-form').addEventListener('submit', function(e){
   });
   const hero = document.querySelector(".hero");
   const images = [
-    "images/bg 1.jpg",
-    "images/bg2.webp",
-    "images/bg3.jpg",
-    "images/bg4.jpg"
+    "images/green leaf.jpg",
+   
   ];
   let i = 0;
 
@@ -24,6 +22,13 @@ document.querySelector('.contact-form').addEventListener('submit', function(e){
     hero.style.backgroundImage = `url(${images[i]})`;
     i = (i + 1) % images.length;
   }
+
+  document.getElementById("searchInput").addEventListener("keypress", function(e) {
+    if(e.key === "Enter"){
+      alert("Searching for: " + e.target.value);
+    }
+  });
+  
 
   // Run immediately on load
   changeBackground();
@@ -35,11 +40,6 @@ document.querySelector('.contact-form').addEventListener('submit', function(e){
     const hero = document.querySelector(".hero");
     const images = [
       
-      "images/bg3.jpg",
-      "images/bg4.jpg",
-      "images/bg5.jpg",
-      "images/bg 1.jpg",
-      "images/bg2.webp"
 
     ];
     let i = 0;
@@ -58,6 +58,8 @@ document.querySelector('.contact-form').addEventListener('submit', function(e){
     // Change every 5 sec
     setInterval(changeBackground, 3000);
   });
+
+
 
 
   

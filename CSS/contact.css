@@ -3,11 +3,12 @@ body {
     margin: 0;
     padding: 0;
     background: #f9f9f9;
+    padding-top: 50PX;
   }
   
   .contact-section {
     padding: 40px;
-    background: #fff;
+    background: #b1f0e5;
     max-width: 1200px;
     margin: auto;
     border-radius: 12px;
@@ -83,5 +84,9 @@ body {
     .contact-container {
       grid-template-columns: 1fr;
     }
+    body{
+      padding-top: 0%;
+    }
   }
+  
   

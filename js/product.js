@@ -13,9 +13,7 @@ function addToCart(name, price, img) {
   alert(name + " added to cart!");
 }
 
-function updateCartCount() {
-  document.getElementById("cart-count").innerText = cart.length;
-}
+
 
 function displayCart() {
   const cartItems = document.getElementById("cart-items");
@@ -48,6 +46,3 @@ function removeFromCart(index) {
 function checkout() {
   alert("Proceeding to checkout...");
 }
-
-updateCartCount();
-displayCart();
