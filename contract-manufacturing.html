@@ -1,200 +1,445 @@
 <!doctype html>
 <html lang="en">
+
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>Samarthya Contract Manufacturing — Proprietary Herbals</title>
 
   <!-- Fonts -->
-  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700&family=Poppins:wght@300;400;500&display=swap" rel="stylesheet">
+  <link
+    href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700&family=Poppins:wght@300;400;500&display=swap"
+    rel="stylesheet">
 
   <style>
-    :root{
-      --accent-1:#2d6a4f;
-      --accent-2:#52b788;
-      --cta-1:#87cadf;
-      --cta-2:#b47a95;
-      --glass: rgba(255,255,255,0.85);
-      --max-width:1200px;
+    :root {
+      --accent-1: #2d6a4f;
+      --accent-2: #52b788;
+      --cta-1: #87cadf;
+      --cta-2: #52b788;
+      --glass: rgba(255, 255, 255, 0.85);
+      --max-width: 1200px;
     }
 
-    *{box-sizing:border-box}
-    html,body{height:100%}
-    body{
-      margin:0;
-      font-family:'Poppins',sans-serif;
-      color:#222;
-      background:linear-gradient(180deg,#f5faf5,#eef7ee);
-      -webkit-font-smoothing:antialiased;
-      -moz-osx-font-smoothing:grayscale;
-      line-height:1.5;
+    * {
+      box-sizing: border-box
+    }
+
+    html,
+    body {
+      height: 100%
+    }
+
+    body {
+      margin: 0;
+      font-family: 'Poppins', sans-serif;
+      color: #222;
+      background: linear-gradient(180deg, #97dbd2, #eef7ee);
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+      line-height: 1.5;
     }
 
     /* PAGE LAYOUT */
-    .wrap{max-width:var(--max-width);margin:0 auto}
+    .wrap {
+      max-width: var(--max-width);
+      margin: 0 auto
+    }
 
     /* HERO SLIDESHOW */
-    .hero{
-      position:relative;
-      height:86vh;
-      min-height:520px;
-      overflow:hidden;
-      display:flex;
-      align-items:center;
-      justify-content:center;
-      text-align:center;
-      color:#fff;
-    }
-    .hero .slide{
-      position:absolute; inset:0;
-      background-size:cover;
-      background-position:center;
-      opacity:0;
-      transform:scale(1.02);
-      transition:opacity 1s ease, transform 1.2s ease;
-    }
-    .hero .slide.active{opacity:1; transform:scale(1)}
-    .hero::after{
-      content:"";
-      position:absolute; inset:0;
-      background:linear-gradient(180deg, rgba(7,39,17,0.45), rgba(7,39,17,0.55));
-      pointer-events:none;
+    .hero {
+      position: relative;
+      height: 86vh;
+      min-height: 520px;
+      overflow: hidden;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      color: #fff;
     }
 
-    .hero-inner{
-      position:relative;
-      z-index:5;
+    .hero .slide {
+      position: absolute;
+      inset: 0;
+      background-size: cover;
+      background-position: center;
+      opacity: 0;
+      transform: scale(1.02);
+      transition: opacity 1s ease, transform 1.2s ease;
+    }
+
+    .hero .slide.active {
+      opacity: 1;
+      transform: scale(1)
+    }
+
+    .hero::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(180deg, rgba(7, 39, 17, 0.45), rgba(7, 39, 17, 0.55));
+      pointer-events: none;
+    }
+
+    .hero-inner {
+      position: relative;
+      z-index: 5;
       padding: 0 20px;
-      width:100%;
-      max-width:1000px;
+      width: 100%;
+      max-width: 1000px;
     }
-    .brandline{font-family:'Montserrat',sans-serif; font-weight:700; letter-spacing:1px; font-size:1rem; opacity:0.95}
-    h1.hero-title{
-      margin:18px 0 12px;
-      font-family:'Montserrat',sans-serif;
-      font-size:clamp(28px,4.5vw,54px);
-      line-height:1.02;
-      letter-spacing:1px;
-    }
-    p.hero-sub{font-size:clamp(14px,1.6vw,18px); margin-bottom:22px; opacity:0.95; max-width:760px; margin-left:auto;margin-right:auto}
 
-    .hero-cta{display:inline-flex; gap:14px; align-items:center; flex-wrap:wrap; justify-content:center}
-    .btn{
-      display:inline-block;
-      padding:12px 26px;
-      border-radius:999px;
-      color:#fff;
-      font-weight:600;
-      text-decoration:none;
-      box-shadow:0 8px 22px rgba(0,0,0,0.18);
-      transition:transform .2s ease, box-shadow .2s ease;
+    .brandline {
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 700;
+      letter-spacing: 1px;
+      font-size: 1rem;
+      opacity: 0.95
     }
-    .btn-primary{ background:linear-gradient(90deg,var(--cta-1),var(--cta-2)); }
-    .btn-outline{
-      background:transparent;
-      border:2px solid rgba(255,255,255,0.18);
-      color:#fff;
-      padding:10px 22px;
+
+    h1.hero-title {
+      margin: 18px 0 12px;
+      font-family: 'Montserrat', sans-serif;
+      font-size: clamp(28px, 4.5vw, 54px);
+      line-height: 1.02;
+      letter-spacing: 1px;
     }
-    .btn:hover{ transform:translateY(-6px) }
+
+    p.hero-sub {
+      font-size: clamp(14px, 1.6vw, 18px);
+      margin-bottom: 22px;
+      opacity: 0.95;
+      max-width: 760px;
+      margin-left: auto;
+      margin-right: auto
+    }
+
+    .hero-cta {
+      display: inline-flex;
+      gap: 14px;
+      align-items: center;
+      flex-wrap: wrap;
+      justify-content: center
+    }
+
+    .btn {
+      display: inline-block;
+      padding: 12px 26px;
+      border-radius: 999px;
+      color: #fff;
+      font-weight: 600;
+      text-decoration: none;
+      box-shadow: 0 8px 22px rgba(0, 0, 0, 0.18);
+      transition: transform .2s ease, box-shadow .2s ease;
+    }
+
+    .btn-primary {
+      background: linear-gradient(90deg, var(--cta-1), var(--cta-2));
+    }
+
+    .btn-outline {
+      background: transparent;
+      border: 2px solid rgba(255, 255, 255, 0.18);
+      color: #fff;
+      padding: 10px 22px;
+    }
+
+    .btn:hover {
+      transform: translateY(-6px)
+    }
 
     /* TYPING CURSOR */
-    .typed { border-right: 2px solid rgba(255,255,255,0.85); padding-right:6px; }
+    .typed {
+      border-right: 2px solid rgba(255, 255, 255, 0.85);
+      padding-right: 6px;
+    }
 
     /* TOP NAV (simple) */
-    .topbar{
-      position:absolute; left:0; right:0; top:18px; z-index:9;
-      display:flex; align-items:center; justify-content:center;
-      pointer-events:none;
+    .topbar {
+      position: absolute;
+      left: 0;
+      right: 0;
+      top: 18px;
+      z-index: 9;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      pointer-events: none;
+      
     }
-    .logo{
-      pointer-events:auto;
-      background:rgba(255,255,255,0.06);
-      padding:8px 14px; border-radius:10px; color:#fff; font-weight:700;
-      letter-spacing:0.8px; backdrop-filter: blur(6px);
-      box-shadow:0 6px 18px rgba(0,0,0,0.25);
+
+    .logo {
+      pointer-events: auto;
+      background: rgba(255, 255, 255, 0.06);
+      padding: 8px 14px;
+      border-radius: 10px;
+      color: #fff;
+      font-weight: 700;
+      letter-spacing: 0.8px;
+      backdrop-filter: blur(6px);
+      box-shadow: 0 6px 18px rgba(0, 0, 0, 0.25);
     }
 
     /* SECTIONS */
-    section{padding:72px 20px}
-    .section-title{ text-align:center; margin-bottom:26px; color:var(--accent-1); font-family:'Montserrat',sans-serif; font-size:24px}
-    .lead{max-width:900px;margin:0 auto 26px; text-align:center; color:#284; opacity:0.95}
+    section {
+      padding: 72px 20px
+    }
+
+    .section-title {
+      text-align: center;
+      margin-bottom: 26px;
+      color: var(--accent-1);
+      font-family: 'Montserrat', sans-serif;
+      font-size: 24px
+    }
+
+    .lead {
+      max-width: 900px;
+      margin: 0 auto 26px;
+      text-align: center;
+      color: #284;
+      opacity: 0.95
+    }
 
     /* CAPABILITIES (list style, not cards) */
-    .capabilities { display:flex; gap:24px; flex-wrap:wrap; justify-content:center; align-items:flex-start }
-    .cap-col { flex:1 1 300px; max-width:360px; background:var(--glass); padding:20px 18px; border-radius:12px; box-shadow:0 6px 18px rgba(8,40,24,0.06); }
-    .cap-col h3{color:var(--accent-1); margin-bottom:10px; font-family:'Montserrat',sans-serif}
-    .cap-list{margin:0;padding-left:18px}
+    .capabilities {
+      display: flex;
+      gap: 24px;
+      flex-wrap: wrap;
+      justify-content: center;
+      align-items: flex-start
+    }
+
+    .cap-col {
+      flex: 1 1 300px;
+      max-width: 360px;
+      background: var(--glass);
+      padding: 20px 18px;
+      border-radius: 12px;
+      box-shadow: 0 6px 18px rgba(8, 40, 24, 0.06);
+    }
+
+    .cap-col h3 {
+      color: var(--accent-1);
+      margin-bottom: 10px;
+      font-family: 'Montserrat', sans-serif
+    }
+
+    .cap-list {
+      margin: 0;
+      padding-left: 18px
+    }
 
     /* PRODUCT PORTFOLIO (simple tiles) */
-    .portfolio { display:grid; grid-template-columns:repeat(auto-fit,minmax(220px,1fr)); gap:18px; align-items:stretch }
-    .tile{
-      background:linear-gradient(180deg, #ffffff, #fbfff9);
-      border-radius:12px; padding:20px; box-shadow:0 6px 18px rgba(7,39,17,0.04);
-      display:flex; flex-direction:column; justify-content:center; align-items:flex-start;
+    .portfolio {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 18px;
+      align-items: stretch
     }
-    .tile h4{margin:0 0 8px; color:var(--accent-1); font-family:'Montserrat',sans-serif}
+
+    .tile {
+      background: linear-gradient(180deg, #ffffff, #fbfff9);
+      border-radius: 12px;
+      padding: 20px;
+      box-shadow: 0 6px 18px rgba(7, 39, 17, 0.04);
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: flex-start;
+    }
+
+    .tile h4 {
+      margin: 0 0 8px;
+      color: var(--accent-1);
+      font-family: 'Montserrat', sans-serif
+    }
 
     /* PARTNERS CARDS */
-    .partner-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(240px,1fr)); gap:20px; align-items:stretch }
-    .partner {
-      background: linear-gradient(180deg, rgba(255,255,255,0.95), rgba(245,255,245,0.95));
-      padding:18px; border-radius:14px; box-shadow:0 10px 30px rgba(2,20,8,0.08);
-      display:flex; flex-direction:column; gap:12px; align-items:flex-start;
-      transition: transform .28s cubic-bezier(.2,.9,.3,1), box-shadow .28s;
+    .partner-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 20px;
+      align-items: stretch
     }
-    .partner:hover{ transform:translateY(-10px); box-shadow:0 18px 42px rgba(2,20,8,0.12) }
-    .partner img{ width:100%; height:140px; object-fit:cover; border-radius:10px }
-    .partner h3{ margin:0; color:var(--accent-1); font-family:'Montserrat',sans-serif }
-    .partner p{ margin:0; color:#2b3b2f }
+
+    .partner {
+      background: linear-gradient(180deg, rgba(255, 255, 255, 0.95), rgba(245, 255, 245, 0.95));
+      padding: 18px;
+      border-radius: 14px;
+      box-shadow: 0 10px 30px rgba(2, 20, 8, 0.08);
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      align-items: flex-start;
+      transition: transform .28s cubic-bezier(.2, .9, .3, 1), box-shadow .28s;
+    }
+
+    .partner:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 18px 42px rgba(2, 20, 8, 0.12)
+    }
+
+    .partner img {
+      width: 100%;
+      height: 140px;
+      object-fit: cover;
+      border-radius: 10px
+    }
+
+    .partner h3 {
+      margin: 0;
+      color: var(--accent-1);
+      font-family: 'Montserrat', sans-serif
+    }
+
+    .partner p {
+      margin: 0;
+      color: #2b3b2f
+    }
 
     /* WHY CHOOSE - icon list */
-    .why-list{ display:flex; gap:20px; flex-wrap:wrap; justify-content:center }
-    .why-item{ flex:1 1 220px; max-width:320px; text-align:left; background:rgba(255,255,255,0.9); padding:18px; border-radius:12px; box-shadow:0 6px 18px rgba(7,39,17,0.04)}
-    .why-item h4{ margin:0 0 8px; font-family:'Montserrat',sans-serif; color:var(--accent-1) }
+    .why-list {
+      display: flex;
+      gap: 20px;
+      flex-wrap: wrap;
+      justify-content: center
+    }
+
+    .why-item {
+      flex: 1 1 220px;
+      max-width: 320px;
+      text-align: left;
+      background: rgba(255, 255, 255, 0.9);
+      padding: 18px;
+      border-radius: 12px;
+      box-shadow: 0 6px 18px rgba(7, 39, 17, 0.04)
+    }
+
+    .why-item h4 {
+      margin: 0 0 8px;
+      font-family: 'Montserrat', sans-serif;
+      color: var(--accent-1)
+    }
 
     /* PROCESS timeline */
-    .timeline{ max-width:880px; margin:0 auto; padding:10px 6px; position:relative }
-    .step{ display:flex; gap:18px; align-items:flex-start; margin-bottom:20px }
-    .bullet{ min-width:40px; height:40px; border-radius:50%; background:linear-gradient(90deg,var(--accent-1),var(--accent-2)); color:white; display:flex; align-items:center; justify-content:center; font-weight:700 }
-    .step p{ margin:0; color:#233 }
+    .timeline {
+      max-width: 880px;
+      margin: 0 auto;
+      padding: 10px 6px;
+      position: relative
+    }
+
+    .step {
+      display: flex;
+      gap: 18px;
+      align-items: flex-start;
+      margin-bottom: 20px
+    }
+
+    .bullet {
+      min-width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      background: linear-gradient(90deg, var(--accent-1), var(--accent-2));
+      color: white;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 700
+    }
+
+    .step p {
+      margin: 0;
+      color: #233
+    }
 
     /* CTA SECTION */
-    .cta-section{ background:linear-gradient(90deg,var(--cta-1),var(--cta-2)); color:#fff; padding:48px 20px; border-radius:14px; text-align:center; margin:24px auto; max-width:980px; box-shadow:0 14px 40px rgba(255,111,97,0.12) }
-    .cta-section .cta-btn{ background:rgba(255,255,255,0.12); padding:12px 22px; border-radius:999px; color:#fff; text-decoration:none; display:inline-block; border:1px solid rgba(255,255,255,0.18) }
+    .cta-section {
+      background: linear-gradient(90deg, var(--cta-1), var(--cta-2));
+      color: #fff;
+      padding: 48px 20px;
+      border-radius: 14px;
+      text-align: center;
+      margin: 24px auto;
+      max-width: 980px;
+      box-shadow: 0 14px 40px rgba(255, 111, 97, 0.12)
+    }
 
-    footer{ padding:28px 20px; text-align:center; color:#223; font-size:14px }
-    footer .small{ opacity:0.8 }
+    .cta-section .cta-btn {
+      background: rgba(255, 255, 255, 0.12);
+      padding: 12px 22px;
+      border-radius: 999px;
+      color: #fff;
+      text-decoration: none;
+      display: inline-block;
+      border: 1px solid rgba(255, 255, 255, 0.18)
+    }
+
+    footer {
+      padding: 28px 20px;
+      text-align: center;
+      color: #223;
+      font-size: 14px
+    }
+
+    footer .small {
+      opacity: 0.8
+    }
 
     /* RESPONSIVE */
-    @media (max-width:900px){
-      .capabilities{ flex-direction:column; align-items:stretch }
-      .hero{ height:72vh; min-height:420px }
-      .hero .hero-content{ padding:0 10px }
+    @media (max-width:900px) {
+      .capabilities {
+        flex-direction: column;
+        align-items: stretch
+      }
+
+      .hero {
+        height: 72vh;
+        min-height: 420px
+      }
+
+      .hero .hero-content {
+        padding: 0 10px
+      }
     }
 
     /* fade-in helper (JS toggled) */
-    .reveal {opacity:0; transform: translateY(18px); transition:all .7s ease}
-    .reveal.show{ opacity:1; transform: translateY(0) }
+    .reveal {
+      opacity: 0;
+      transform: translateY(18px);
+      transition: all .7s ease
+    }
+
+    .reveal.show {
+      opacity: 1;
+      transform: translateY(0)
+    }
   </style>
 </head>
+
 <body>
 
   <!-- HERO / SLIDESHOW -->
   <header class="hero" aria-hidden="false">
     <!-- slides: change image URLs to your own images in /images/ -->
-    <div class="slide" style="background-image:url('https://images.unsplash.com/photo-1501004318641-b39e6451bec6?auto=format&fit=crop&w=1600&q=80')"></div>
-    <div class="slide" style="background-image:url('')"></div>
-    <div class="slide" style="background-image:url('images/broad\ product\ image.webp')"></div>
+    <div class="slide"
+      style="background-image:url('https://images.unsplash.com/photo-1501004318641-b39e6451bec6?auto=format&fit=crop&w=1600&q=80')">
+    </div>
+    <div class="slide" style="background-image:url('images/baground4.jpg')"></div>
 
-    <div class="topbar"><div class="logo wrap">Samarthya</div></div>
+    <div class="topbar">
+      <div class="logo wrap">Samarthya</div>
+    </div>
 
     <div class="hero-inner wrap">
       <div class="brandline reveal">Contract Manufacturing — Proprietary Herbals</div>
       <h1 class="hero-title reveal">
         <span id="typed" class="typed" aria-hidden="false"></span>
       </h1>
-      <p class="hero-sub reveal">Trusted partner for herbal, food & personal care contract manufacturing. GMP & AYUSH-aligned — concept to packaging, fast & confidential.</p>
+      <p class="hero-sub reveal">Trusted partner for herbal, food & personal care contract manufacturing. GMP &
+        AYUSH-aligned — concept to packaging, fast & confidential.</p>
 
       <div class="hero-cta reveal" style="margin-top:18px">
         <a href="#contact" class="btn btn-primary">Partner with Us</a>
@@ -206,8 +451,9 @@
   <!-- CAPABILITIES -->
   <section id="capabilities" class="wrap">
     <div class="reveal">
-      <div class="section-title">Our Capabilities</div>
-      <p class="lead">High-precision processing, hygienic operations and flexible lines to manufacture syrups, powders, oils, semi-solids & more.</p>
+      <b><div class="section-title">Our Capabilities</div></b>
+      <p class="lead">High-precision processing, hygienic operations and flexible lines to manufacture syrups, powders,
+        oils, semi-solids & more.</p>
     </div>
 
     <div class="capabilities reveal" data-delay="0.08">
@@ -237,22 +483,38 @@
 
   <!-- PRODUCT PORTFOLIO -->
   <section id="portfolio" class="wrap reveal">
-    <div class="section-title">Product Portfolio — Samarthya Series</div>
+   <b> <div class="section-title">Product Portfolio — Samarthya Series</div></b>
     <p class="lead">Proprietary herbal formulations ready for private label or exclusive contract manufacturing.</p>
 
     <div class="portfolio" aria-hidden="false">
-      <div class="tile"><h4>Samarthya Cough Mixture</h4><p>Adulsa & Haldi based soothing syrup.</p></div>
-      <div class="tile"><h4>Samarthya Dusting Powder</h4><p>Gentle skin-friendly herbal powders.</p></div>
-      <div class="tile"><h4>Samarthya Kesh Tail</h4><p>Jaswand yukt hair oil for strength & shine.</p></div>
-      <div class="tile"><h4>Samarthya Face Pack</h4><p>Natural radiance and skin nourishment.</p></div>
-      <div class="tile"><h4>Samarthya Balguti Syrup</h4><p>Kid-friendly herbal tonic for digestion.</p></div>
+      <div class="tile">
+        <h4>Samarthya Cough Mixture</h4>
+        <p>Adulsa & Haldi based soothing syrup.</p>
+      </div>
+      <div class="tile">
+        <h4>Samarthya Dusting Powder</h4>
+        <p>Gentle skin-friendly herbal powders.</p>
+      </div>
+      <div class="tile">
+        <h4>Samarthya Kesh Tail</h4>
+        <p>Jaswand yukt hair oil for strength & shine.</p>
+      </div>
+      <div class="tile">
+        <h4>Samarthya Face Pack</h4>
+        <p>Natural radiance and skin nourishment.</p>
+      </div>
+      <div class="tile">
+        <h4>Samarthya Balguti Syrup</h4>
+        <p>Kid-friendly herbal tonic for digestion.</p>
+      </div>
     </div>
   </section>
 
   <!-- PARTNERS / cards -->
   <section id="partners" class="wrap reveal">
-    <div class="section-title">Key Collaborations</div>
-    <p class="lead">We collaborate with brands to produce market-ready herbal & food products — confidentiality guaranteed.</p>
+   <b><div class="section-title">Key Collaborations</div></b> 
+    <p class="lead">We collaborate with brands to produce market-ready herbal & food products — confidentiality
+      guaranteed.</p>
 
     <div class="partner-grid" aria-live="polite">
       <article class="partner" aria-labelledby="p1">
@@ -262,13 +524,15 @@
       </article>
 
       <article class="partner" aria-labelledby="p2">
-        <img src="https://images.unsplash.com/photo-1600180758894-0e55d5a4f8a7?auto=format&fit=crop&w=1200&q=80" alt="Joti Hair Oil image">
+        <img src="https://images.unsplash.com/photo-1600180758894-0e55d5a4f8a7?auto=format&fit=crop&w=1200&q=80"
+          alt="Joti Hair Oil image">
         <h3 id="p2">Joti Hair Oil</h3>
         <p>Custom hair oil formulations delivered with consistent sensory and performance standards.</p>
       </article>
 
       <article class="partner" aria-labelledby="p3">
-        <img src="https://images.unsplash.com/photo-1543353071-087092ec3930?auto=format&fit=crop&w=1200&q=80" alt="Viston Foods image">
+        <img src="https://images.unsplash.com/photo-1543353071-087092ec3930?auto=format&fit=crop&w=1200&q=80"
+          alt="Viston Foods image">
         <h3 id="p3">Viston Foods LLP</h3>
         <p>Partnering for food-grade herbal innovations and nutraceutical product ranges.</p>
       </article>
@@ -277,14 +541,27 @@
 
   <!-- WHY CHOOSE -->
   <section id="why" class="wrap reveal">
-    <div class="section-title">Why Partner With Samarthya?</div>
-    <p class="lead">We combine regulatory know-how, production excellence and confidentiality to reduce your time-to-market.</p>
+  <b><div class="section-title">Why Partner With Samarthya?</div></b>  
+    <p class="lead">We combine regulatory know-how, production excellence and confidentiality to reduce your
+      time-to-market.</p>
 
     <div class="why-list">
-      <div class="why-item"><h4>GMP & AYUSH Compliance</h4><p>Structured processes & documentation for regulatory confidence.</p></div>
-      <div class="why-item"><h4>R&D & Formulation</h4><p>Custom formulation support and stability testing.</p></div>
-      <div class="why-item"><h4>Scalable Manufacturing</h4><p>Pilot to commercial scale with consistent quality.</p></div>
-      <div class="why-item"><h4>Confidential & Secure</h4><p>IP protection and NDA-backed collaborations.</p></div>
+      <div class="why-item">
+        <h4>GMP & AYUSH Compliance</h4>
+        <p>Structured processes & documentation for regulatory confidence.</p>
+      </div>
+      <div class="why-item">
+        <h4>R&D & Formulation</h4>
+        <p>Custom formulation support and stability testing.</p>
+      </div>
+      <div class="why-item">
+        <h4>Scalable Manufacturing</h4>
+        <p>Pilot to commercial scale with consistent quality.</p>
+      </div>
+      <div class="why-item">
+        <h4>Confidential & Secure</h4>
+        <p>IP protection and NDA-backed collaborations.</p>
+      </div>
     </div>
   </section>
 
@@ -292,19 +569,35 @@
   <section id="process" class="wrap reveal">
     <div class="section-title">Our Process</div>
     <div class="timeline">
-      <div class="step"><div class="bullet">1</div><p><strong>Concept & Formulation:</strong> We co-develop product brief & formulation blueprint.</p></div>
-      <div class="step"><div class="bullet">2</div><p><strong>Raw Material QC:</strong> Sourcing, identity & purity testing.</p></div>
-      <div class="step"><div class="bullet">3</div><p><strong>Pilot Batch:</strong> Stability & shelf-life evaluation.</p></div>
-      <div class="step"><div class="bullet">4</div><p><strong>Scale-Up:</strong> GMP production with full batch records.</p></div>
-      <div class="step"><div class="bullet">5</div><p><strong>Packaging & Delivery:</strong> Custom packaging, coding & dispatch.</p></div>
+      <div class="step">
+        <div class="bullet">1</div>
+        <p><strong>Concept & Formulation:</strong> We co-develop product brief & formulation blueprint.</p>
+      </div>
+      <div class="step">
+        <div class="bullet">2</div>
+        <p><strong>Raw Material QC:</strong> Sourcing, identity & purity testing.</p>
+      </div>
+      <div class="step">
+        <div class="bullet">3</div>
+        <p><strong>Pilot Batch:</strong> Stability & shelf-life evaluation.</p>
+      </div>
+      <div class="step">
+        <div class="bullet">4</div>
+        <p><strong>Scale-Up:</strong> GMP production with full batch records.</p>
+      </div>
+      <div class="step">
+        <div class="bullet">5</div>
+        <p><strong>Packaging & Delivery:</strong> Custom packaging, coding & dispatch.</p>
+      </div>
     </div>
   </section>
 
   <!-- CTA -->
   <section id="contact" class="cta-section reveal">
     <div class="wrap">
-      <h2 style="margin:0 0 10px;font-family:'Montserrat',sans-serif">Collaborate With Us</h2>
-      <p style="margin:0 0 18px">Ready to launch or scale your herbal product? Drop a message — we'll respond quickly to discuss feasibility, MOQ & timelines.</p>
+      <b><h2 style="margin:0 0 10px;font-family:'Montserrat',sans-serif">Collaborate With Us</h2></b>
+      <p style="margin:0 0 18px">Ready to launch or scale your herbal product? Drop a message — we'll respond quickly to
+        discuss feasibility, MOQ & timelines.</p>
       <a class="cta-btn" href="mailto:samarthyahealthcare25@gmail.com">Email Us — samarthyahealthcare25@gmail.com</a>
     </div>
   </section>
@@ -319,27 +612,27 @@
   <!-- SCRIPTS: slideshow, typing, reveal on scroll -->
   <script>
     /* HERO SLIDESHOW */
-    (function(){
+    (function () {
       const slides = Array.from(document.querySelectorAll('.hero .slide'));
       let idx = 0;
-      if(!slides.length) return;
+      if (!slides.length) return;
       slides[idx].classList.add('active');
-      setInterval(()=>{
+      setInterval(() => {
         slides[idx].classList.remove('active');
-        idx = (idx+1) % slides.length;
+        idx = (idx + 1) % slides.length;
         slides[idx].classList.add('active');
       }, 4500);
     })();
 
     /* TYPING EFFECT */
-    (function(){
+    (function () {
       const el = document.getElementById('typed');
       const text = "Contract Manufacturing Solutions";
       let pos = 0;
       const speed = 50;
-      function type(){
-        if(pos <= text.length){
-          el.textContent = text.slice(0,pos);
+      function type() {
+        if (pos <= text.length) {
+          el.textContent = text.slice(0, pos);
           pos++;
           setTimeout(type, speed);
         } else {
@@ -352,16 +645,16 @@
     })();
 
     /* SCROLL REVEAL (IntersectionObserver) */
-    (function(){
-      const obs = new IntersectionObserver((entries)=>{
-        entries.forEach(e=>{
-          if(e.isIntersecting){
+    (function () {
+      const obs = new IntersectionObserver((entries) => {
+        entries.forEach(e => {
+          if (e.isIntersecting) {
             e.target.classList.add('show');
             obs.unobserve(e.target);
           }
         });
-      }, {threshold:0.15});
-      document.querySelectorAll('.reveal').forEach(el=>{
+      }, { threshold: 0.15 });
+      document.querySelectorAll('.reveal').forEach(el => {
         obs.observe(el);
       });
     })();
@@ -369,4 +662,5 @@
     /* Accessible focus for skip-to-content (optional) */
   </script>
 </body>
+
 </html>
