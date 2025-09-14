@@ -1,6 +1,6 @@
 .about-section {
     padding: 80px 20px;
-    background: rgb(162, 237, 240); /* Light background */
+    background: rgb(219, 232, 233); /* Light background */
     text-align: center;
   }
   
@@ -92,7 +92,7 @@
     background: #00796b;
   }
   /* Extra Content (Know More Section) */
-#extra-content {
+  #extra-content {
   display: none;
   margin: 0 auto; /* Center the block */
   max-width: 900px; /* Limit the width so boxes appear in middle */

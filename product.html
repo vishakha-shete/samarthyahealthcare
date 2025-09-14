@@ -1,176 +1,564 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>E-Shop | Products</title>
-  <link rel="stylesheet" href="css/product.CSS">
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>Samarthya Healthcare — Premium Product Broadcast</title>
+<link rel="preconnect" href="https://fonts.gstatic.com">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --brand: #0d7a63;
+    --accent: #2ecc71;
+    --muted: #6b7280;
+    --bg: #f6fffa;
+    --glass: rgba(255,255,255,0.12);
+  }
+  *{box-sizing:border-box}
+  body{margin:0;font-family:"Poppins",system-ui,Segoe UI,Roboto,Arial;background:var(--bg);color:#073425;-webkit-font-smoothing:antialiased}
+  .container{max-width:1200px;margin:0 auto;padding:0 20px}
+
+  /* ---------- HERO (first impression) ---------- */
+  header.hero {
+    height: 78vh;
+    min-height:560px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    text-align:center;
+    position:relative;
+    color:#fff;
+    overflow:hidden;
+  }
+  header.hero::before{
+    content:"";
+    position:absolute; inset:0;
+    background-image: url("images/baground2.jpg");
+    background-size:cover; background-position:center;
+    filter: brightness(.45) saturate(.9);
+    transform-origin:center;
+    transition: transform 1.2s ease;
+    z-index:0;
+  }
+  header.hero .hero-inner{position:relative;z-index:2;max-width:980px;padding:48px;}
+  header.hero h1{font-family:'Playfair Display',serif;font-size:3.2rem;margin:0 0 12px;line-height:1.02}
+  header.hero p{font-size:1.05rem;margin:0 0 20px;color:rgba(255,255,255,0.95)}
+  .hero-cta{display:inline-flex;gap:12px;align-items:center}
+  .btn-primary{background:var(--accent);color:#0b3f33;padding:12px 18px;border-radius:999px;border:0;font-weight:700;cursor:pointer;box-shadow:0 10px 30px rgba(46,204,113,0.14)}
+  .btn-ghost{background:transparent;color:#fff;border:1px solid rgba(255,255,255,0.18);padding:10px 16px;border-radius:999px;cursor:pointer}
+
+  /* subtle floating leaves */
+  .leaf-float{position:absolute;z-index:1;pointer-events:none;opacity:.85;filter:drop-shadow(0 6px 18px rgba(2,6,23,.14))}
+
+  /* ---------- BROADCAST HERO (category-driven) ---------- */
+  .broadcast {
+    position:relative;
+    padding:42px 0 0;
+    margin-top:-40px; /* overlap hero */
+  }
+  .broadcast .bg {
+    position:absolute; inset:0; z-index:0; background-size:cover; background-position:center; filter: saturate(.95) brightness(.55); transition: background-image .9s ease, transform 0.8s ease;
+  }
+  .broadcast .glass {
+    position:relative; z-index:2; margin:0 auto; background: linear-gradient(180deg, rgba(255,255,255,0.06), rgba(255,255,255,0.02)); border-radius:16px; padding:34px; max-width:1150px; display:grid; grid-template-columns:1fr 380px; gap:28px; align-items:center; backdrop-filter: blur(6px);
+  }
+  .site-badge { display:inline-block;padding:6px 12px;border-radius:999px;background:rgba(255,255,255,0.08);font-weight:700;color:#fff;margin-bottom:12px}
+  .glass h2{font-family:'Playfair Display',serif;color:#fff;font-size:2.2rem;margin:0 0 10px}
+  .glass p{color:rgba(255,255,255,0.9);margin:0 0 14px}
+
+  .chips{display:flex;gap:10px;flex-wrap:wrap;margin-top:12px}
+  .chip{padding:8px 14px;border-radius:999px;background:var(--glass);color:#fff;font-weight:600;cursor:pointer;border:1px solid rgba(255,255,255,0.06);transition:all .25s}
+  .chip:hover{transform:scale(1.04)}
+  .chip.active{background:#fff;color:var(--brand);box-shadow:0 12px 36px rgba(13,148,136,.12)}
+
+  .spotlight{background:linear-gradient(180deg,#ffffff,#fbfffb);border-radius:14px;padding:18px;display:flex;flex-direction:column;align-items:center;gap:12px;box-shadow:0 16px 40px rgba(2,6,23,0.08)}
+  .spotlight img{width:240px;height:240px;object-fit:cover;border-radius:12px}
+  .spotlight h4{margin:0;color:var(--brand);font-size:18px}
+  .spotlight .meta{font-size:13px;color:var(--muted)}
+
+  /* ---------- Category thumb strip ---------- */
+  .cat-strip{max-width:1150px;margin:18px auto;display:flex;gap:12px;padding:12px;border-radius:12px;background:#fff;box-shadow:0 12px 36px rgba(2,6,23,0.05);justify-content:center}
+  .cat-card{display:flex;gap:12px;align-items:center;padding:10px;border-radius:10px;min-width:160px;cursor:pointer;transition:transform .25s}
+  .cat-card img{width:64px;height:64px;border-radius:10px;object-fit:cover}
+  .cat-card .txt{font-weight:700;color:#0d7a63}
+  .cat-card .sub{font-size:12px;color:var(--muted)}
+
+  /* ---------- Featured carousel ---------- */
+  .spot-carousel{max-width:1200px;margin:36px auto;padding:0 20px}
+  .carousel-controls{display:flex;justify-content:space-between;align-items:center;margin-bottom:12px}
+  .carousel-track{display:flex;gap:22px;overflow:hidden;padding-bottom:8px;scroll-snap-type:x mandatory; -webkit-overflow-scrolling:touch}
+  .card-large{min-width:320px;flex:0 0 320px;border-radius:14px;background:#fff;overflow:hidden;box-shadow:0 16px 40px rgba(2,6,23,0.06);scroll-snap-align:center;transition:transform .35s}
+  .card-hero{height:220px;background-size:cover;background-position:center}
+  .card-body{padding:16px}
+  .card-body h3{margin:0 0 8px;color:var(--brand)}
+  .card-body p{margin:0;color:var(--muted)}
+  .small-dot{width:10px;height:10px;border-radius:50%;background:rgba(0,0,0,.12);display:inline-block;margin:0 6px}
+  .small-dot.active{background:var(--brand)}
+
+  /* ---------- Brand marquee ---------- */
+.brand-marquee {
+  background: linear-gradient(180deg, #fff, #fbfffb);
+  padding: 18px 0;
+  margin-top: 28px;
+}
+
+.marquee-wrap {
+  max-width: 1200px;
+  margin: 0 auto;
+  overflow: hidden;
+}
+
+.marquee-track {
+  display: flex;
+  gap: 28px;
+  align-items: center;
+  animation: marquee 18s linear infinite;
+}
+
+.brand-logo {
+  width: 140px;
+  height: 56px;
+  background: #fff;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 8px;
+  box-shadow: 0 10px 30px rgba(2, 6, 23, 0.04);
+}
+
+.brand-logo img {
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain; /* important to keep aspect ratio */
+  display: block;
+}
+
+@keyframes marquee {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+
+  /* ---------- Ingredients strip ---------- */
+  .ing-strip{max-width:1150px;margin:44px auto;display:flex;gap:16px;flex-wrap:wrap;justify-content:center}
+  .ing-card{min-width:140px;background:linear-gradient(180deg,#fff,#f7fff7);padding:12px;border-radius:12px;text-align:center;box-shadow:0 8px 24px rgba(2,6,23,0.04)}
+  .ing-card img{width:72px;height:72px;border-radius:50%;object-fit:cover;margin-bottom:8px}
+
+  /* ---------- Testimonials ---------- */
+  .testi{max-width:1150px;margin:44px auto 80px;display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:18px;padding:0 20px}
+  .t{background:#fff;padding:20px;border-radius:12px;box-shadow:0 12px 36px rgba(2,6,23,0.06);font-style:italic}
+
+  /* responsive */
+  @media(max-width:980px){
+    .glass{grid-template-columns:1fr;padding:22px}
+    .spotlight{order:-1;width:100%}
+    .cat-strip{flex-direction:column;align-items:stretch}
+    header.hero{min-height:520px}
+  }
+  @media(max-width:520px){
+    header.hero h1{font-size:1.8rem}
+    .spotlight img{width:200px;height:200px}
+  }
+</style>
 </head>
 <body>
 
-  <header>
-    <h1>Samarthya Store🛒 </h1>
-    <nav>
-      <a href="cart.html">🛒 (<span id="cart-count">0</span>)</a>
-    </nav>
+  <!-- HERO -->
+  <header class="hero" role="banner" aria-label="Samarthya hero">
+    <!-- floating accent leaves (decor, replace with your own PNGs if you like) -->
+    <img src="images/baground2.jpg" class="leaf-float" style="left:8%;top:8%;width:120px;border-radius:10px;opacity:.18">
+    <img src="images/baground3.JPG" class="leaf-float" style="right:6%;bottom:8%;width:160px;border-radius:10px;opacity:.14">
+    <div class="hero-inner container">
+      <h1>Herbal Science-Premium Craft</h1>
+      <p>From centuries old Ayurvedic recipes to modern production & QA crafted for efficacy, purity and sensory delight.</p>
+      <div class="hero-cta">
+        <button class="btn-primary" id="exploreBtn">Explore Collection</button>
+        <button class="btn-ghost" onclick="openEnquiry()">Discuss a Project</button>
+      </div>
+    </div>
   </header>
 
-  <section class="products">
-    <!-- Product 1 -->
-    <div class="product-card">
-      <img src="images/chandan churna.jpg" alt="Product 1">
-      <h3>Backpack 60L</h3>
-      <p class="price">₹458 <span class="old-price">₹2,599</span></p>
-      <button onclick="addToCart('Backpack 60L', 458, 'images/product1.jpg')">Add to Cart</button>
-    </div>
+  <!-- BROADCAST -->
+  <section class="broadcast" id="broadcast" aria-label="Product broadcast">
+    <div class="bg" id="broadcastBg"></div>
+    <div class="glass container" role="region" aria-labelledby="broadcastTitle">
+      <div class="left">
+        <h2 id="broadcastTitle">Premium Herbal & Ayurvedic Essentials</h2>
+        <p id="broadcastDesc">Handcrafted formulations combining classical Ayurveda with modern QA — curated for efficacy and pleasant sensory experience.</p>
 
-    <!-- Product 2 -->
-    <div class="product-card">
-      <img src="images/aavla churna.jpg" alt="Product 2">
-      <h3>Orange Travel Bag</h3>
-      <p class="price">₹1,599 <span class="old-price">₹4,399</span></p>
-      <button onclick="addToCart('Orange Travel Bag', 1599, 'images/product2.jpg')">Add to Cart</button>
-    </div>
+        <div class="chips" role="tablist">
+          <div class="chip active" data-cat="herbals" onclick="setBroadcast('herbals')">Herbals</div>
+          <div class="chip" data-cat="hairoils" onclick="setBroadcast('hairoils')">Hair Oils</div>
+          <div class="chip" data-cat="wellness" onclick="setBroadcast('wellness')">Wellness</div>
+          <div class="chip" data-cat="skincare" onclick="setBroadcast('skincare')">Skincare</div>
+        </div>
 
-    <!-- Product 3 -->
-    <div class="product-card">
-      <img src="images/dikemali churan.jpg" alt="Product 3">
-      <h3>Fast Fashion Laptop Bag</h3>
-      <p class="price">₹283 <span class="old-price">₹1,099</span></p>
-      <button onclick="addToCart('Laptop Bag', 283, 'images/product3.jpg')">Add to Cart</button>
-    </div>
-
-      <!-- Product 4 -->
-      <div class="product-card">
-        <img src="images/dikemali churan.jpg" alt="Product 3">
-        <h3>Fast Fashion Laptop Bag</h3>
-        <p class="price">₹283 <span class="old-price">₹1,099</span></p>
-        <button onclick="addToCart('Laptop Bag', 283, 'images/product3.jpg')">Add to Cart</button>
+        <div style="margin-top:18px">
+          <button class="btn-primary" onclick="scrollToSection('spotlight')">Explore Collection</button>
+          <button class="btn-ghost" onclick="openEnquiry()">Discuss Project</button>
+        </div>
       </div>
 
-  <!-- Product 4 -->
-  <div class="product-card">
-    <img src="images/dikemali churan.jpg" alt="Product 3">
-    <h3>Fast Fashion Laptop Bag</h3>
-    <p class="price">₹283 <span class="old-price">₹1,099</span></p>
-    <button onclick="addToCart('Laptop Bag', 283, 'images/product3.jpg')">Add to Cart</button>
-  </div>
-
-    <!-- Product 3 -->
-    <div class="product-card">
-      <img src="images/dikemali churan.jpg" alt="Product 3">
-      <h3>Fast Fashion Laptop Bag</h3>
-      <p class="price">₹283 <span class="old-price">₹1,099</span></p>
-      <button onclick="addToCart('Laptop Bag', 283, 'images/product3.jpg')">Add to Cart</button>
+      <aside class="spotlight" aria-hidden="false">
+        <img id="spotImage" src="images/aavla churna.jpg" alt="Spotlight product">
+        <h4 id="spotName">Triphala Churna</h4>
+        <div class="meta" id="spotTag">Immunity • Digestive Harmony</div>
+      </aside>
     </div>
-
-
-
-      <!-- Product 3 -->
-      <div class="product-card">
-        <img src="images/dikemali churan.jpg" alt="Product 3">
-        <h3>Fast Fashion Laptop Bag</h3>
-        <p class="price">₹283 <span class="old-price">₹1,099</span></p>
-        <button onclick="addToCart('Laptop Bag', 283, 'images/product3.jpg')">Add to Cart</button>
-      </div>
-
-
-
-        <!-- Product 3 -->
-    <div class="product-card">
-      <img src="images/dikemali churan.jpg" alt="Product 3">
-      <h3>Fast Fashion Laptop Bag</h3>
-      <p class="price">₹283 <span class="old-price">₹1,099</span></p>
-      <button onclick="addToCart('Laptop Bag', 283, 'images/product3.jpg')">Add to Cart</button>
-    </div>
-
-
-
-
-      <!-- Product 3 -->
-      <div class="product-card">
-        <img src="images/dikemali churan.jpg" alt="Product 3">
-        <h3>Fast Fashion Laptop Bag</h3>
-        <p class="price">₹283 <span class="old-price">₹1,099</span></p>
-        <button onclick="addToCart('Laptop Bag', 283, 'images/product3.jpg')">Add to Cart</button>
-      </div>
-
-
-
-
-        <!-- Product 3 -->
-    <div class="product-card">
-      <img src="images/dikemali churan.jpg" alt="Product 3">
-      <h3>Fast Fashion Laptop Bag</h3>
-      <p class="price">₹283 <span class="old-price">₹1,099</span></p>
-      <button onclick="addToCart('Laptop Bag', 283, 'images/product3.jpg')">Add to Cart</button>
-    </div>
-
-
-
-      <!-- Product 3 -->
-      <div class="product-card">
-        <img src="images/dikemali churan.jpg" alt="Product 3">
-        <h3>Fast Fashion Laptop Bag</h3>
-        <p class="price">₹283 <span class="old-price">₹1,099</span></p>
-        <button onclick="addToCart('Laptop Bag', 283, 'images/product3.jpg')">Add to Cart</button>
-      </div>
-
-
-        <!-- Product 3 -->
-    <div class="product-card">
-      <img src="images/dikemali churan.jpg" alt="Product 3">
-      <h3>Fast Fashion Laptop Bag</h3>
-      <p class="price">₹283 <span class="old-price">₹1,099</span></p>
-      <button onclick="addToCart('Laptop Bag', 283, 'images/product3.jpg')">Add to Cart</button>
-    </div>
-
-
-
-      <!-- Product 3 -->
-      <div class="product-card">
-        <img src="images/dikemali churan.jpg" alt="Product 3">
-        <h3>Fast Fashion Laptop Bag</h3>
-        <p class="price">₹283 <span class="old-price">₹1,099</span></p>
-        <button onclick="addToCart('Laptop Bag', 283, 'images/product3.jpg')">Add to Cart</button>
-      </div>
-
-
-
-
-        <!-- Product 3 -->
-    <div class="product-card">
-      <img src="images/dikemali churan.jpg" alt="Product 3">
-      <h3>Fast Fashion Laptop Bag</h3>
-      <p class="price">₹283 <span class="old-price">₹1,099</span></p>
-      <button onclick="addToCart('Laptop Bag', 283, 'images/product3.jpg')">Add to Cart</button>
-    </div>
-
-
-
-      <!-- Product 3 -->
-      <div class="product-card">
-        <img src="images/dikemali churan.jpg" alt="Product 3">
-        <h3>Fast Fashion Laptop Bag</h3>
-        <p class="price">₹283 <span class="old-price">₹1,099</span></p>
-        <button onclick="addToCart('Laptop Bag', 283, 'images/product3.jpg')">Add to Cart</button>
-      </div>
-
-
-        <!-- Product 3 -->
-    <div class="product-card">
-      <img src="images/dikemali churan.jpg" alt="Product 3">
-      <h3>Fast Fashion Laptop Bag</h3>
-      <p class="price">₹283 <span class="old-price">₹1,099</span></p>
-      <button onclick="addToCart('Laptop Bag', 283, 'images/product3.jpg')">Add to Cart</button>
-    </div>
-
-
-
-
-
   </section>
 
-  <script src="js/product.js"></script>
+  <!-- CATEGORY THUMB STRIP -->
+  <div class="cat-strip container" aria-label="category quick access">
+    <div class="cat-card" onclick="setBroadcast('herbals')">
+      <img src="https://images.unsplash.com/photo-1501004318641-b39e6451bec6?w=300" alt="">
+      <div><div class="txt">Herbals</div><div class="sub">Powders & churna</div></div>
+    </div>
+    <div class="cat-card" onclick="setBroadcast('hairoils')">
+      <img src="images/bhringraj hair oil.webp" alt="">
+      <div><div class="txt">Hair Oils</div><div class="sub">Nourishing blends</div></div>
+    </div>
+    <div class="cat-card" onclick="setBroadcast('wellness')">
+      <img src="images/wellness small.png" alt="">
+      <div><div class="txt">Wellness</div><div class="sub">Tonics & syrups</div></div>
+    </div>
+    <div class="cat-card" onclick="setBroadcast('skincare')">
+      <img src="images/skincare.jpeg" alt="">
+      <div><div class="txt">Skincare</div><div class="sub">Creams & serums</div></div>
+    </div>
+  </div>
+
+  <!-- SPOTLIGHT CAROUSEL -->
+  <section id="spotlight" class="spot-carousel" aria-label="featured products">
+    <div class="carousel-controls container">
+      <div style="font-weight:700;color:var(--brand)">Featured Products</div>
+      <div id="dots"></div>
+    </div>
+    <div class="carousel-track container" id="carouselTrack" tabindex="0" aria-roledescription="carousel"></div>
+  </section>
+
+  <!-- BRAND MARQUEE -->
+  <section class="brand-marquee" aria-hidden="false">
+    <div class="marquee-wrap">
+      <div class="marquee-track" id="marquee">
+        <div class="brand-logo"><img src="images/jotis hair oil.webp" alt="Joti"></div>
+        <div class="brand-logo"><img src="images/viston foods.png" alt="Viston"></div>
+        <div class="brand-logo"><img src="images/Proprietary Herbals.png" alt="Proprietary"></div>
+        <div class="brand-logo"><img src="images/aavla churna.jpg" alt="Amarantha"></div>
+        <div class="brand-logo"><img src="images/hair pack.jpg" alt="Himalaya"></div>
+        <!-- duplicate for seamless loop -->
+        <div class="brand-logo"><img src="images/jotis hair oil.webp" alt="Joti"></div>
+        <div class="brand-logo"><img src="images/aambe halad.jpg" alt="Viston"></div>
+        <div class="brand-logo"><img src="images/chandan churna.jpg" alt="Proprietary"></div>
+        <div class="brand-logo"><img src="images/dikemali churan.jpg" alt="Amarantha"></div>
+        <div class="brand-logo"><img src="images/jeshthaman churan.jpg" alt="Himalaya"></div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- INGREDIENTS -->
+  <section class="ing-strip" aria-label="key ingredients">
+    <div class="ing-card"><img src="https://images.unsplash.com/photo-1606112219348-204d7d8b94ee?w=300" alt=""><div><strong>Amla</strong></div></div>
+    <div class="ing-card"><img src="https://images.unsplash.com/photo-1502741338009-cac2772e18bc?w=300" alt=""><div><strong>Neem</strong></div></div>
+    <div class="ing-card"><img src="images/tulsi.jpeg" alt=""><div><strong>Tulsi</strong></div></div>
+    <div class="ing-card"><img src="https://images.unsplash.com/photo-1501004318641-b39e6451bec6?w=300" alt=""><div><strong>Ashwagandha</strong></div></div>
+  </section>
+
+  <!-- TESTIMONIALS -->
+  <section class="testi" aria-label="testimonials">
+    <div class="t">"Samarthya's formulations are consistent, high-quality and the packaging looked premium on shelf."</div>
+    <div class="t">"R&D support and GMP compliance were excellent delivery timelines were met."</div>
+    <div class="t">"Lovely sensory profile and stable shelf life recommended for private label partners."</div>
+  </section>
+
+  <style>
+  section.products {
+    padding: 0px 10%;
+    text-align: center;
+    background: linear-gradient(to bottom, #ffffff, #f0f5f0);
+  }
+
+  section.products h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: 42px;
+    margin-bottom: 15px;
+    color: #0d4d3d;
+  }
+
+  section.products p {
+    font-size: 16px;
+    max-width: 600px;
+    margin: 0 auto 50px;
+    color: #555;
+  }
+
+  .product-gallery {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 30px;
+  }
+
+  .product-card {
+    background: #fff;
+    border-radius: 18px;
+    overflow: hidden;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.08);
+    transition: transform 0.4s ease, box-shadow 0.4s ease;
+    cursor: pointer;
+    position: relative;
+  }
+
+  .product-card:hover {
+    transform: translateY(-10px) scale(1.02);
+    box-shadow: 0 12px 25px rgba(0, 0, 0, 0.12);
+  }
+
+  .product-card img {
+    width: 100%;
+    height: 250px;
+    object-fit: cover;
+    transition: transform 0.4s ease;
+  }
+
+  .product-card:hover img {
+    transform: scale(1.08);
+  }
+
+  .product-info {
+    padding: 20px;
+  }
+
+  .product-info h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: 22px;
+    margin-bottom: 10px;
+    color: #0d4d3d;
+  }
+
+  .product-info p {
+    font-size: 14px;
+    color: #666;
+  }
+
+  /* Golden divider */
+  .divider {
+    width: 60px;
+    height: 3px;
+    background: linear-gradient(90deg, #c5a446, #f0d87b);
+    margin: 20px auto;
+    border-radius: 2px;
+  }
+
+  /* Responsive */
+  @media (max-width: 768px) {
+    section.products {
+      padding: 60px 5%;
+    }
+    section.products h2 {
+      font-size: 32px;
+    }
+    .product-card img {
+      height: 200px;
+    }
+  }
+</style>
+
+
+<!-- Product Section -->
+<section class="products" id="products">
+  <h2>Our Premium Products</h2>
+  <div class="divider"></div>
+  <p>
+    Crafted with care and inspired by Ayurveda, each product from Samarthya Healthcare blends tradition with innovation. 
+    Explore our exclusive range designed to nurture wellness naturally.
+  </p>
+
+  <div class="product-gallery">
+    <div class="product-card">
+      <img src="images/hair pack.jpg" alt="Herbal Oil">
+      <div class="product-info">
+        <h3>Herbal Hair Oil</h3>
+        <p>Nourishment rooted in Ayurveda, giving strength and shine.</p>
+      </div>
+    </div>
+    <div class="product-card">
+      <img src="images/aambe halad.jpg" alt="Ayurvedic Medicine">
+      <div class="product-info">
+        <h3>Ayurvedic Formulations</h3>
+        <p>Time-tested remedies crafted with modern precision.</p>
+      </div>
+    </div>
+    <div class="product-card">
+      <img src="images/adulsa.jpg" alt="Natural Supplements">
+      <div class="product-info">
+        <h3>Natural Supplements</h3>
+        <p>Boosting immunity and wellness with 100% natural extracts.</p>
+      </div>
+    </div>
+  </div>
+</section>
+<script>
+/* ============================
+   Data for broadcast + carousel
+   Replace these URLs with your own images in /assets for production
+   ============================ */
+const BROADCAST = {
+  herbals: {
+    bg: "https://images.unsplash.com/photo-1501004318641-b39e6451bec6?w=1600",
+    title: "Premium Herbal Formulations",
+    desc: "Classical Ayurvedic powders, churna and decoctions crafted for purity and performance.",
+    spotImg: "images/chandan churna.jpg",
+    spotName: "chandan Churna",
+    tag: "Immunity • Digestive Harmony"
+  },
+  hairoils: {
+    bg: "images/wellness-bg.jpg",
+    title: "Nourishing Hair Oils",
+    desc: "Cold-pressed herbal oils with centuries-old recipes for shine and strength.",
+    spotImg: "images/bhringraj hair oil.webp",
+    spotName: "Hair OIL",
+    tag: "Anti-hair-fall • Scalp Health"
+  },
+  wellness: {
+    bg: "images/personal-bg.jpg",
+    title: "Holistic Wellness Range",
+    desc: "Tonics, syrups and supplements designed to support daily health & vitality.",
+    spotImg: "images/aambe halad.jpg",
+    spotName: "Immunity Tonic",
+    tag: "Natural • Potent"
+  },
+  skincare: {
+    bg: "images/Ayurvedic Skincare bg.jpg",
+    title: "Ayurvedic Skincare",
+    desc: "Gentle, herbal skincare—cleansing oils, creams and serums made to soothe and repair.",
+    spotImg: "https://images.unsplash.com/photo-1501004318641-b39e6451bec6?w=900",
+    spotName: "Herbal Glow Cream",
+    tag: "Soothing • Hydrating"
+  }
+};
+
+const CARDS = {
+  herbals:[
+    {img:"https://images.unsplash.com/photo-1563805042-7684c019e1cb?w=900", title:"Triphala Churna", desc:"Digestive & detox support"},
+    {img:"https://images.unsplash.com/photo-1501004318641-b39e6451bec6?w=900", title:"Amla Powder", desc:"High-vitamin C antioxidant"},
+    {img:"https://images.unsplash.com/photo-1524594154906-0b10c1f6f5a0?w=900", title:"Ashwagandha Extract", desc:"Stress support"}
+  ],
+  hairoils:[
+    {img:"https://images.unsplash.com/photo-1615485737569-d7f8e27b17a2?w=900", title:"Joti Hair Elixir", desc:"Scalp nourishment & growth"},
+    {img:"https://images.unsplash.com/photo-1516685018646-549c8ebf6f44?w=900", title:"Rejuvenating Oil", desc:"Strengthens brittle hair"}
+  ],
+  wellness:[
+    {img:"https://images.unsplash.com/photo-1600891964599-f61ba0e24092?w=900", title:"Immunity Tonic", desc:"Daily wellness tonic"},
+    {img:"https://images.unsplash.com/photo-1601004890684-d8cbf643f5f2?w=900", title:"Detox Syrup", desc:"Gentle cleanse"}
+  ],
+  skincare:[
+    {img:"https://images.unsplash.com/photo-1505751172876-fa1923c5c528?w=900", title:"Herbal Glow Cream", desc:"Deep hydration"},
+    {img:"https://images.unsplash.com/photo-1524594154906-0b10c1f6f5a0?w=900", title:"Calming Serum", desc:"Reduces redness"}
+  ]
+};
+
+/* ---------- Broadcast logic ---------- */
+const broadcastEl = document.getElementById('broadcast');
+const broadcastBg = document.getElementById('broadcastBg');
+function setBroadcast(cat){
+  // chips active
+  document.querySelectorAll('.chip').forEach(c=>c.classList.toggle('active', c.dataset.cat===cat));
+  // update bg and text
+  const b = BROADCAST[cat];
+  // set background image inline (preferred)
+  broadcastBg.style.backgroundImage = `url('${b.bg}')`;
+  document.getElementById('broadcastTitle').textContent = b.title;
+  document.getElementById('broadcastDesc').textContent = b.desc;
+  document.getElementById('spotImage').src = b.spotImg;
+  document.getElementById('spotName').textContent = b.spotName;
+  document.getElementById('spotTag').textContent = b.tag;
+  // render carousel cards based on category
+  renderCarousel(cat);
+}
+/* initialize default */
+setBroadcast('herbals');
+
+/* ---------- Carousel rendering ---------- */
+const carouselTrack = document.getElementById('carouselTrack');
+const dotsContainer = document.getElementById('dots');
+
+function renderCarousel(category){
+  carouselTrack.innerHTML = '';
+  dotsContainer.innerHTML = '';
+  const list = CARDS[category] || [];
+  list.forEach((c, i) => {
+    const a = document.createElement('article');
+    a.className = 'card-large';
+    a.innerHTML = `<div class="card-hero" style="background-image:url('${c.img}')"></div>
+                   <div class="card-body"><h3>${c.title}</h3><p>${c.desc}</p></div>`;
+    carouselTrack.appendChild(a);
+
+    // dots
+    const dot = document.createElement('span');
+    dot.className = 'small-dot' + (i===0 ? ' active' : '');
+    dot.addEventListener('click', ()=> {
+      // scroll so card is centered
+      const left = a.offsetLeft - (window.innerWidth - a.clientWidth)/2;
+      carouselTrack.scrollTo({left, behavior:'smooth'});
+      document.querySelectorAll('.small-dot').forEach(d=>d.classList.remove('active'));
+      dot.classList.add('active');
+    });
+    dotsContainer.appendChild(dot);
+  });
+}
+
+/* autoplay carousel */
+let autoIdx = 0;
+setInterval(()=> {
+  const cards = document.querySelectorAll('.card-large');
+  if(!cards.length) return;
+  autoIdx = (autoIdx + 1) % cards.length;
+  const card = cards[autoIdx];
+  const left = card.offsetLeft - (window.innerWidth - card.clientWidth)/2;
+  carouselTrack.scrollTo({left, behavior:'smooth'});
+  document.querySelectorAll('.small-dot').forEach(d=>d.classList.remove('active'));
+  const dots = document.querySelectorAll('.small-dot');
+  if(dots[autoIdx]) dots[autoIdx].classList.add('active');
+}, 4200);
+
+/* marquee pause on hover */
+const marquee = document.getElementById('marquee');
+if(marquee){
+  marquee.addEventListener('mouseenter', ()=> marquee.style.animationPlayState='paused');
+  marquee.addEventListener('mouseleave', ()=> marquee.style.animationPlayState='running');
+}
+
+/* scroll helper */
+function scrollToSection(id){
+  document.getElementById(id)?.scrollIntoView({behavior:'smooth', block:'center'});
+}
+
+/* enquiry stub */
+function openEnquiry(){
+  alert('Open enquiry modal / redirect to contact form. Replace this function with your real contact modal.');
+}
+
+/* hero CTA auto-scroll (smooth attention) */
+document.getElementById('exploreBtn').addEventListener('click', ()=> scrollToSection('spotlight'));
+
+/* small reveal for card visuals when scrolled into view */
+window.addEventListener('scroll', ()=>{
+  document.querySelectorAll('.card-large').forEach(card=>{
+    const top = card.getBoundingClientRect().top;
+    if(top < window.innerHeight * 0.85) card.classList.add('visible');
+  });
+});
+
+/* keyboard left/right to navigate carousel for accessibility */
+document.getElementById('carouselTrack').addEventListener('keydown', (e)=>{
+  if(e.key === 'ArrowRight') carouselTrack.scrollBy({left: 320+22, behavior:'smooth'});
+  if(e.key === 'ArrowLeft') carouselTrack.scrollBy({left: - (320+22), behavior:'smooth'});
+});
+</script>
 </body>
 </html>
