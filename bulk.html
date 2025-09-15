@@ -1,0 +1,359 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Bulk Supplies | Samarthya Healthcare</title>
+  <style>
+    body {
+      margin:0; font-family:"Segoe UI", Arial, sans-serif;
+      background:#f9f9f9; color:#222;
+    }
+
+    /* Hero Section */
+    .bulk-hero {
+      background: url('images/aayurvedic.png') center/cover no-repeat;
+      height: 70vh;
+      display:flex; align-items:center; justify-content:center;
+      position:relative; text-align:center; color:white;
+    }
+    .bulk-hero::after {
+      content:""; position:absolute; inset:0;
+      background:rgba(0,0,0,0.55);
+    }
+    .bulk-hero-content {
+      position:relative; z-index:2; max-width:800px; padding:1rem;
+    }
+    .bulk-hero h1 {
+      font-size:2.8rem; margin-bottom:1rem;
+      text-transform:uppercase; letter-spacing:2px;
+    }
+    .bulk-hero p { font-size:1.2rem; line-height:1.6; }
+
+    /* Highlights */
+    .highlights {
+      display:grid; grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+      gap:20px; padding:3rem 1.5rem; max-width:1200px; margin:auto;
+    }
+    .highlight {
+      background:white; padding:2rem; border-radius:12px;
+      box-shadow:0 8px 20px rgba(0,0,0,0.08);
+      text-align:center; transition:transform .3s;
+    }
+    .highlight:hover { transform:translateY(-5px); }
+    .highlight img { width:60px; margin-bottom:1rem; }
+    .highlight h3 { margin:0.5rem 0; }
+
+    /* Capacity Section */
+    .capacity {
+      background:#fff;
+      padding:3rem 1.5rem; text-align:center;
+    }
+    .capacity h2 {
+      font-size:2rem; margin-bottom:1rem; text-transform:uppercase;
+    }
+    .capacity p { max-width:800px; margin:auto; line-height:1.7; }
+
+    /* Gallery */
+    .gallery {
+      padding:3rem 1.5rem; max-width:1200px; margin:auto;
+    }
+    .gallery h2 { text-align:center; margin-bottom:2rem; font-size:2rem; }
+    .gallery-grid {
+      display:grid; grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+      gap:15px;
+    }
+    .gallery-grid img {
+      width:100%; height:250px; object-fit:cover;
+      border-radius:12px; box-shadow:0 5px 15px rgba(0,0,0,0.1);
+      transition:transform .3s;
+    }
+    .gallery-grid img:hover { transform:scale(1.05); }
+
+    /* Call To Action */
+    .cta {
+      background:linear-gradient(135deg,#aef1f1,#0f9d58);
+      color:white; text-align:center; padding:3rem 1.5rem;
+    }
+    .cta h2 { font-size:2rem; margin-bottom:1rem; }
+    .cta p { margin-bottom:2rem; font-size:1.1rem; }
+    .cta a {
+      background:white; color:#0a8754;
+      padding:0.8rem 1.5rem; border-radius:8px;
+      text-decoration:none; font-weight:bold; transition:0.3s;
+    }
+    .cta a:hover { background:#f1f1f1; }
+
+    /* Responsive */
+    @media (max-width:600px) {
+      .bulk-hero h1 { font-size:2rem; }
+      .bulk-hero p { font-size:1rem; }
+    }
+
+        /* Certifications Auto-scroll */
+        .certifications {
+          background: #fff;
+          padding: 60px 0;
+          overflow: hidden;
+          position: relative;
+        }
+    
+        .certifications h2 {
+          color: #00695c;
+          margin-bottom: 30px;
+        }
+    
+        .logo-slider {
+          display: flex;
+          width: calc(250px * 10);
+          animation: scroll 20s linear infinite;
+        }
+    
+        .logo-slider img {
+          width: 200px;
+          height: 100px;
+          object-fit: contain;
+          margin: 0 30px;
+          transition: filter 0.3s;
+        }
+    
+        .logo-slider img:hover {
+          filter: grayscale(0%);
+        }
+    
+        @keyframes scroll {
+          0% { transform: translateX(0); }
+          100% { transform: translateX(-50%); }
+        }
+    
+    
+
+  </style>
+</head>
+<body>
+
+  <!-- Hero -->
+  <section class="bulk-hero">
+    <div class="bulk-hero-content">
+      <h1>Bulk Supplies</h1>
+      <p>High Quality Fine Powdered Raw Materials for Tablet and Capsule Manufacturers </p>
+    </div>
+  </section>
+
+
+
+
+  <!-- Bulk Production in Action Section -->
+<section class="bulk-production" id="bulk-production">
+    <div class="bulk-container">
+      <!-- Left: Image -->
+      <div class="bulk-image">
+        <img src="images/bg4.jpg" alt="Hammer Mill Machine">
+      </div>
+  
+      <!-- Right: Content -->
+      <div class="bulk-content">
+        <h2>⚙️ Bulk Production in Action</h2>
+        <p>
+          At the heart of this powerhouse is a robust 
+          <span class="highlight">Hammer Mill</span>, meticulously designed to 
+          deliver superior grinding performance. This isn’t just a mill—it’s a 
+          marvel of engineering.
+        </p>
+        <p>
+          Capable of processing up to 
+          <span class="highlight">2.0 tons of material per day</span>, this machine 
+          ensures unmatched consistency, quality, and efficiency. Imagine the 
+          reliability and the sheer volume you can achieve for your large-scale 
+          Ayurvedic production needs.
+        </p>
+  
+        <div class="stats">
+          <div class="stat-box">
+            <h3>2.0+</h3>
+            <p>Tons Processed Daily</p>
+          </div>
+          <div class="stat-box">
+            <h3>100%</h3>
+            <p>Consistent Quality</p>
+          </div>
+          <div class="stat-box">
+            <h3>24/7</h3>
+            <p>Industrial Reliability</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  
+  <!-- CSS -->
+  <style>
+  .bulk-production {
+    padding: 80px 10%;
+    background: linear-gradient(135deg, #f9f9f9, #ffffff);
+    font-family: "Poppins", sans-serif;
+  }
+  
+  .bulk-container {
+    display: flex;
+    align-items: center;
+    gap: 40px;
+    flex-wrap: wrap;
+  }
+  
+  .bulk-image {
+    flex: 1;
+    text-align: center;
+  }
+  
+  .bulk-image img {
+    max-width: 100%;
+    border-radius: 16px;
+    box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+    transition: transform 0.4s ease;
+  }
+  
+  .bulk-image img:hover {
+    transform: scale(1.05);
+  }
+  
+  .bulk-content {
+    flex: 1;
+  }
+  
+  .bulk-content h2 {
+    font-size: 2.5rem;
+    font-weight: 700;
+    margin-bottom: 20px;
+    color: #2c3e50;
+    position: relative;
+  }
+  
+  .bulk-content h2::after {
+    content: "";
+    position: absolute;
+    bottom: -8px;
+    left: 0;
+    width: 70px;
+    height: 4px;
+    background: #27ae60;
+    border-radius: 2px;
+  }
+  
+  .bulk-content p {
+    font-size: 1.1rem;
+    color: #555;
+    line-height: 1.7;
+    margin-bottom: 15px;
+  }
+  
+  .bulk-content .highlight {
+    font-weight: 600;
+    color: #27ae60;
+  }
+  
+  .stats {
+    display: flex;
+    gap: 20px;
+    margin-top: 25px;
+    flex-wrap: wrap;
+  }
+  
+  .stat-box {
+    background: #ffffff;
+    padding: 20px;
+    border-radius: 12px;
+    text-align: center;
+    flex: 1;
+    min-width: 150px;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+  
+  .stat-box:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 25px rgba(0,0,0,0.2);
+  }
+  
+  .stat-box h3 {
+    font-size: 2rem;
+    color: #27ae60;
+    margin-bottom: 8px;
+  }
+  
+  .stat-box p {
+    font-size: 0.95rem;
+    color: #555;
+  }
+  </style>
+  
+  <!-- Highlights -->
+  <section class="highlights">
+    <div class="highlight">
+      <img src="images/certified.png"/>
+      <h3>Certified Quality</h3>
+      <p>All products meet stringent safety.</p>
+    </div>
+    <div class="highlight">
+      <img src="images/scale supply.png"/>
+      <h3>Large Scale Supply</h3>
+      <p>Capable of handling bulk requirements without compromising quality.</p>
+    </div>
+    <div class="highlight">
+      <img src="images/ayurvedic experties.png"/>
+      <h3>Ayurvedic Expertise</h3>
+      <p>Decades of experience in authentic herbal formulations.</p>
+    </div>
+    <div class="highlight">
+      <img src="images/trusted support.png"/>
+      <h3>Trusted Support</h3>
+      <p>Dedicated team for bulk orders, partnerships & delivery.</p>
+    </div>
+  </section>
+
+  <!-- Capacity -->
+  <section class="capacity">
+    <h2>Our Manufacturing Capacity</h2>
+    <p>Samarthya Healthcare’s state-of-the-art facility can produce bulk quantities of herbal powders, capsules, and oils with uncompromised quality. Whether you need small batches or large-scale production, we ensure timely delivery with GMP certified processes.</p>
+  </section>
+
+  <!-- Gallery -->
+  <section class="gallery">
+    <h2>Bulk Production in Action</h2>
+    <div class="gallery-grid">
+      <img src="images/bulk1.jpeg" alt="Lab">
+      <img src="images/aayurvedic.png" alt="Production">
+      <img src="images/bulk2.jpg" alt="Herbs">
+      <img src="images/bulk3.jpg" alt="Ayurveda">
+    </div>
+  </section>
+
+  
+    <!-- Certifications Auto-scroll Section -->
+    <section class="certifications">
+        <h2 style="text-align: center;">Our Certifications & Recognitions</h2>
+        <div class="logo-slider">
+          <img src="images/iso.jpg" alt="ISO 9001">
+          <img src="images/fda approved.jpg" alt="CE Certified">
+          <img src="images/100% herbal.jpg" alt="FDA Approved">
+          <img src="images/haccp.jpg" alt="WHO Compliant">
+          <img src="images/fsaai.jpg" alt="GMP Certified">
+          <!-- Repeat logos for smooth infinite effect -->
+          <img src="images/iso.jpg" alt="ISO 9001">
+          <img src="images/fda approved.jpg" alt="CE Certified">
+          <img src="images/100% herbal.jpg" alt="FDA Approved">
+          <img src="images/haccp.jpg" alt="WHO Compliant">
+          <img src="images/fsaai.jpg" alt="GMP Certified">
+        </div>
+      </section>
+    
+
+  <!-- Call to Action -->
+  <section class="cta">
+    <h2>Partner With Us</h2>
+    <p>Looking for a reliable bulk supplier for Ayurvedic & herbal products? Let’s work together. <br>© 2025 Samarthya Healthcare | All Rights Reservedb</p>
+    <a href="contact.html">Discuss Your Project</a>
+  </section>
+
+</body>
+</html>
