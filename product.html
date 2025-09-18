@@ -11,7 +11,7 @@
     --brand: #0d7a63;
     --accent: #2ecc71;
     --muted: #6b7280;
-    --bg: #f6fffa;
+    --bg: #ebf2f3;
     --glass: rgba(255,255,255,0.12);
   }
   *{box-sizing:border-box}
@@ -71,7 +71,7 @@
   .chip:hover{transform:scale(1.04)}
   .chip.active{background:#fff;color:var(--brand);box-shadow:0 12px 36px rgba(13,148,136,.12)}
 
-  .spotlight{background:linear-gradient(180deg,#ffffff,#fbfffb);border-radius:14px;padding:18px;display:flex;flex-direction:column;align-items:center;gap:12px;box-shadow:0 16px 40px rgba(2,6,23,0.08)}
+  .spotlight{background:linear-gradient(180deg,#ffffff,#fbfffb);border-radius:14px;padding:18px;display:flex;flex-direction:column;align-items:center;gap:7px;box-shadow:0 16px 40px rgba(2,6,23,0.08)}
   .spotlight img{width:240px;height:240px;object-fit:cover;border-radius:12px}
   .spotlight h4{margin:0;color:var(--brand);font-size:18px}
   .spotlight .meta{font-size:13px;color:var(--muted)}
@@ -97,13 +97,12 @@
 
   /* ---------- Brand marquee ---------- */
 .brand-marquee {
-  background: linear-gradient(180deg, #fff, #fbfffb);
   padding: 18px 0;
-  margin-top: 28px;
+  margin-top: 15px;
 }
 
 .marquee-wrap {
-  max-width: 1200px;
+  max-width: 1500px;
   margin: 0 auto;
   overflow: hidden;
 }
@@ -117,8 +116,8 @@
 
 .brand-logo {
   width: 140px;
-  height: 56px;
-  background: #fff;
+  height: 100px;
+  background: #fdfafa;
   border-radius: 10px;
   display: flex;
   align-items: center;
@@ -132,6 +131,49 @@
   max-height: 100%;
   object-fit: contain; /* important to keep aspect ratio */
   display: block;
+}
+
+/* ---------- Mobile View ---------- */
+@media (max-width: 780px) {
+  .brand-marquee {
+    padding: 10px 0;
+    margin-top: 10px;
+  }
+
+  .marquee-track {
+    gap: 16px;                  /* smaller gap between logos */
+    animation: marquee 12s linear infinite; /* a bit faster on mobile */
+  }
+
+  .brand-logo {
+    width: 90px;                /* smaller logo box */
+    height: 65px;
+    padding: 5px;
+    border-radius: 8px;
+  }
+
+  .brand-logo img {
+    max-width: 80px;            /* limit image size */
+    max-height: 55px;
+  }
+}
+
+/* Extra small devices */
+@media (max-width: 480px) {
+  .brand-logo {
+    width: 75px;
+    height: 55px;
+  }
+
+  .brand-logo img {
+    max-width: 65px;
+    max-height: 45px;
+  }
+
+  .marquee-track {
+    gap: 12px;
+    animation: marquee 10s linear infinite;
+  }
 }
 
 @keyframes marquee {
@@ -235,7 +277,7 @@
   <!-- SPOTLIGHT CAROUSEL -->
   <section id="spotlight" class="spot-carousel" aria-label="featured products">
     <div class="carousel-controls container">
-      <div style="font-weight:700;color:var(--brand)">Featured Products</div>
+      <div style=  "text-align: center; font-weight:700;color:var(--brand)">Featured Products</div>
       <div id="dots"></div>
     </div>
     <div class="carousel-track container" id="carouselTrack" tabindex="0" aria-roledescription="carousel"></div>
@@ -304,7 +346,7 @@
   }
 
   .product-card {
-    background: #fff;
+    background: #d4eff3;
     border-radius: 18px;
     overflow: hidden;
     box-shadow: 0 6px 20px rgba(0, 0, 0, 0.08);
@@ -382,25 +424,131 @@
     <div class="product-card">
       <img src="images/hair pack.jpg" alt="Herbal Oil">
       <div class="product-info">
-        <h3>Herbal Hair Oil</h3>
+        <h3>BRHINGRAJ Hair Oil</h3>
         <p>Nourishment rooted in Ayurveda, giving strength and shine.</p>
       </div>
     </div>
     <div class="product-card">
-      <img src="images/aambe halad.jpg" alt="Ayurvedic Medicine">
+      <img src="images/HAIR.jpg" alt="Ayurvedic Medicine">
       <div class="product-info">
-        <h3>Ayurvedic Formulations</h3>
-        <p>Time-tested remedies crafted with modern precision.</p>
+        <h3>HAIR pack</h3>
+        <p>Ayurvedic Hair Pack helps nourish the scalp, reduce hair fall, and promote healthy, strong, and shiny hair naturally.</p>
       </div>
     </div>
     <div class="product-card">
       <img src="images/adulsa.jpg" alt="Natural Supplements">
       <div class="product-info">
-        <h3>Natural Supplements</h3>
-        <p>Boosting immunity and wellness with 100% natural extracts.</p>
+        <h3>Adulsa</h3>
+        <p>Adulsa is an Ayurvedic herb useful for relieving cough, cold, and respiratory problems naturally.</p>
+      </div>
+    </div>
+    <div class="product-card">
+      <img src="images/TIL TEL.jpg" alt="Herbal Oil">
+      <div class="product-info">
+        <h3>TIL tel</h3>
+        <p>"Til Tel (Sesame Oil) is an Ayurvedic oil useful for nourishing hair, strengthening bones, and improving skin health.".</p>
+      </div>
+    </div>
+    <div class="product-card">
+      <img src="images/multani mati.jpg" alt="Ayurvedic Medicine">
+      <div class="product-info">
+        <h3>MULTANI mati</h3>
+        <p>"Karanj Tel (Pongamia Oil) is an Ayurvedic oil useful for treating skin problems, wounds, and infections with its antibacterial and antifungal properties."</p>
+      </div>
+    </div>
+    <div class="product-card">
+      <img src="images/mohari tel.jpg" alt="Natural Supplements">
+      <div class="product-info">
+        <h3>MOHARI tel</h3>
+        <p>Mohari Tel (Mustard Oil) is an Ayurvedic oil useful for improving blood circulation, and relieving joint pain.</p>
+      </div>
+    </div>
+    <div class="product-card">
+      <img src="images/NEEM TEL.jpg" alt="Herbal Oil">
+      <div class="product-info">
+        <h3>NEEM tel</h3>
+        <p>Neem Tel is an Ayurvedic oil useful for treating dandruff, acne, and skin infections with its antibacterial and antifungal properties.</p>
+      </div>
+    </div>
+    <div class="product-card">
+      <img src="images/jeshthaman churan.jpg" alt="Ayurvedic Medicine">
+      <div class="product-info">
+        <h3>jeshthaman churna</h3>
+        <p>Jeshthamadha Churna (Licorice Powder) is an Ayurvedic remedy useful for soothing cough, acidity, and throat irritation naturally.</p>
+      </div>
+    </div>
+    <div class="product-card">
+      <img src="images/karanj tel.jpg" alt="Natural Supplements">
+      <div class="product-info">
+        <h3>KARANJ tel</h3>
+        <p>Mohari Tel (Mustard Oil) is an Ayurvedic oil useful for improving blood circulation, and relieving joint pain.</p>
+      </div>
+    </div>
+    <div class="product-card">
+      <img src="images/dikemali churan.jpg" alt="Herbal Oil">
+      <div class="product-info">
+        <h3>dikemali churna</h3>
+        <p>Dikamali Churna is an Ayurvedic powder useful for relieving stomach disorders, joint pain, and boosting digestion.</p>
+      </div>
+    </div>
+    <div class="product-card">
+      <img src="images/aambe halad.jpg" alt="Ayurvedic Medicine">
+      <div class="product-info">
+        <h3>Aambe halad</h3>
+        <p>Aambe Halad (Mango Ginger) is an Ayurvedic herb useful for improving digestion, reducing inflammation, and boosting immunity.</p>
+      </div>
+    </div>
+    <div class="product-card">
+      <img src="images/venkhad churna.jpg" alt="Natural Supplements">
+      <div class="product-info">
+        <h3>venkhad churna</h3>
+        <p>Vekhande Churna (Acorus Calamus Powder) is an Ayurvedic remedy useful for improving memory, relieving cough, and supporting digestion. </p>
+      </div>
+    </div>
+    <div class="product-card">
+      <img src="images/chandan churna.jpg" alt="Herbal Oil">
+      <div class="product-info">
+        <h3>chandan churna</h3>
+        <p>Nourishment rooted in Ayurveda, giving strength and shine.</p>
+      </div>
+    </div>
+    <div class="product-card">
+      <img src="images/aavla churna.jpg" alt="Ayurvedic Medicine">
+      <div class="product-info">
+        <h3>aavla churna</h3>
+        <p>Ayurvedic Hair Pack helps nourish the scalp, reduce hair fall, and promote healthy, strong, and shiny hair naturally.</p>
+      </div>
+    </div>
+    <div class="product-card">
+      <img src="images/adulsa.jpg" alt="Natural Supplements">
+      <div class="product-info">
+        <h3>Adulsa</h3>
+        <p>Adulsa is an Ayurvedic herb useful for relieving cough, cold, and respiratory problems naturally.</p>
+      </div>
+    </div>
+    <div class="product-card">
+      <img src="images/ashwagandha churna.jpg" alt="Herbal Oil">
+      <div class="product-info">
+        <h3>BRHINGRAJ Hair Oil</h3>
+        <p>Nourishment rooted in Ayurveda, giving strength and shine.</p>
+      </div>
+    </div>
+    <div class="product-card">
+      <img src="images/HAIR.jpg" alt="Ayurvedic Medicine">
+      <div class="product-info">
+        <h3>HAIR pack</h3>
+        <p>Ayurvedic Hair Pack helps nourish the scalp, reduce hair fall, and promote healthy, strong, and shiny hair naturally.</p>
+      </div>
+    </div>
+    <div class="product-card">
+      <img src="images/adulsa.jpg" alt="Natural Supplements">
+      <div class="product-info">
+        <h3>Adulsa</h3>
+        <p>Adulsa is an Ayurvedic herb useful for relieving cough, cold, and respiratory problems naturally.</p>
       </div>
     </div>
   </div>
+  
 </section>
 <script>
 /* ============================
@@ -412,8 +560,8 @@ const BROADCAST = {
     bg: "https://images.unsplash.com/photo-1501004318641-b39e6451bec6?w=1600",
     title: "Premium Herbal Formulations",
     desc: "Classical Ayurvedic powders, churna and decoctions crafted for purity and performance.",
-    spotImg: "images/chandan churna.jpg",
-    spotName: "chandan Churna",
+    spotImg: "images/NEEM TEL.jpg",
+    spotName: "NEEM TEL",
     tag: "Immunity • Digestive Harmony"
   },
   hairoils: {
@@ -428,16 +576,16 @@ const BROADCAST = {
     bg: "images/personal-bg.jpg",
     title: "Holistic Wellness Range",
     desc: "Tonics, syrups and supplements designed to support daily health & vitality.",
-    spotImg: "images/aambe halad.jpg",
-    spotName: "Immunity Tonic",
+    spotImg: "images/Adulsa.jpg",
+    spotName: "Adulsa ",
     tag: "Natural • Potent"
   },
   skincare: {
     bg: "images/Ayurvedic Skincare bg.jpg",
-    title: "Ayurvedic Skincare",
+    title: "NEEM TEL",
     desc: "Gentle, herbal skincare—cleansing oils, creams and serums made to soothe and repair.",
-    spotImg: "https://images.unsplash.com/photo-1501004318641-b39e6451bec6?w=900",
-    spotName: "Herbal Glow Cream",
+    spotImg: "images/hair pack.jpg",
+    spotName: "HAIR PACK",
     tag: "Soothing • Hydrating"
   }
 };

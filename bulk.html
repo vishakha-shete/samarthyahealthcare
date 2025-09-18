@@ -143,149 +143,122 @@
 
 
 
-  <!-- Bulk Production in Action Section -->
-<section class="bulk-production" id="bulk-production">
-    <div class="bulk-container">
-      <!-- Left: Image -->
-      <div class="bulk-image">
-        <img src="images/bg4.jpg" alt="Hammer Mill Machine">
-      </div>
-  
-      <!-- Right: Content -->
-      <div class="bulk-content">
-        <h2>⚙️ Bulk Production in Action</h2>
-        <p>
-          At the heart of this powerhouse is a robust 
-          <span class="highlight">Hammer Mill</span>, meticulously designed to 
-          deliver superior grinding performance. This isn’t just a mill—it’s a 
-          marvel of engineering.
-        </p>
-        <p>
-          Capable of processing up to 
-          <span class="highlight">2.0 tons of material per day</span>, this machine 
-          ensures unmatched consistency, quality, and efficiency. Imagine the 
-          reliability and the sheer volume you can achieve for your large-scale 
-          Ayurvedic production needs.
-        </p>
-  
-        <div class="stats">
-          <div class="stat-box">
-            <h3>2.0+</h3>
-            <p>Tons Processed Daily</p>
-          </div>
-          <div class="stat-box">
-            <h3>100%</h3>
-            <p>Consistent Quality</p>
-          </div>
-          <div class="stat-box">
-            <h3>24/7</h3>
-            <p>Industrial Reliability</p>
-          </div>
-        </div>
-      </div>
+<!-- Bulk Production Section -->
+<section class="bulk-section" id="bulk-production">
+  <div class="bulk-wrapper">
+    <!-- Image -->
+    <div class="bulk-img">
+      <img src="images/bg4.jpg" alt="Hammer Mill Machine">
     </div>
-  </section>
-  
-  <!-- CSS -->
-  <style>
-  .bulk-production {
-    padding: 80px 10%;
-    background: linear-gradient(135deg, #f9f9f9, #ffffff);
-    font-family: "Poppins", sans-serif;
-  }
-  
-  .bulk-container {
-    display: flex;
-    align-items: center;
-    gap: 40px;
-    flex-wrap: wrap;
-  }
-  
-  .bulk-image {
-    flex: 1;
+
+    <!-- Text -->
+    <div class="bulk-text">
+      <h2>Bulk Production in Action</h2>
+      <p>
+        Are you seeking the ultimate solution for achieving exceptional fine powders with
+        unparalleled efficiency? Look no further! Our state-of-the-art pulverizer machine
+        is engineered to revolutionize your bulk herbal processing.
+      </p>
+      <p>
+        At the heart of this powerhouse is a robust Hammer Mill,
+        meticulously designed to deliver superior grinding performance. This isn’t just
+        a mill; it’s a marvel of efficiency.
+      </p>
+      <p>
+        Capable of processing up to 2.0 tons of material per day,
+        imagine the consistency, the quality, and the sheer volume you can achieve!
+      </p>
+    </div>
+  </div>
+</section>
+
+<!-- CSS -->
+<style>
+.bulk-section {
+  padding: 70px 8%;
+  background: #fafafa;
+  font-family: "Poppins", sans-serif;
+}
+
+.bulk-wrapper {
+  display: flex;
+  align-items: center;
+  gap: 40px;
+  flex-wrap: wrap;
+}
+
+.bulk-img {
+  flex: 1;
+  text-align: center;
+}
+
+.bulk-img img {
+  max-width: 100%;
+  border-radius: 14px;
+  box-shadow: 0px 8px 24px rgba(0, 0, 0, 0.15);
+  transition: transform 0.3s ease;
+}
+
+.bulk-img img:hover {
+  transform: scale(1.05);
+}
+
+.bulk-text {
+  flex: 1;
+}
+
+.bulk-text h2 {
+  font-size: 2.3rem;
+  font-weight: 700;
+  margin-bottom: 18px;
+  color: #2c3e50;
+  position: relative;
+}
+
+.bulk-text h2::after {
+  content: "";
+  position: absolute;
+  bottom: -6px;
+  left: 0;
+  width: 60px;
+  height: 4px;
+  background: #27ae60;
+  border-radius: 2px;
+}
+
+.bulk-text p {
+  font-size: 1.05rem;
+  color: #444;
+  line-height: 1.7;
+  margin-bottom: 12px;
+}
+
+.highlight {
+  font-weight: 600;
+  color: #27ae60;
+}
+
+/* 📱 Mobile Responsive */
+@media (max-width: 768px) {
+  .bulk-wrapper {
+    flex-direction: column;
     text-align: center;
   }
-  
-  .bulk-image img {
-    max-width: 100%;
-    border-radius: 16px;
-    box-shadow: 0 8px 25px rgba(0,0,0,0.15);
-    transition: transform 0.4s ease;
+
+  .bulk-text {
+    margin-top: 20px;
   }
-  
-  .bulk-image img:hover {
-    transform: scale(1.05);
+
+  .bulk-text h2 {
+    font-size: 1.8rem;
   }
-  
-  .bulk-content {
-    flex: 1;
+
+  .bulk-text p {
+    font-size: 1rem;
   }
-  
-  .bulk-content h2 {
-    font-size: 2.5rem;
-    font-weight: 700;
-    margin-bottom: 20px;
-    color: #2c3e50;
-    position: relative;
-  }
-  
-  .bulk-content h2::after {
-    content: "";
-    position: absolute;
-    bottom: -8px;
-    left: 0;
-    width: 70px;
-    height: 4px;
-    background: #27ae60;
-    border-radius: 2px;
-  }
-  
-  .bulk-content p {
-    font-size: 1.1rem;
-    color: #555;
-    line-height: 1.7;
-    margin-bottom: 15px;
-  }
-  
-  .bulk-content .highlight {
-    font-weight: 600;
-    color: #27ae60;
-  }
-  
-  .stats {
-    display: flex;
-    gap: 20px;
-    margin-top: 25px;
-    flex-wrap: wrap;
-  }
-  
-  .stat-box {
-    background: #ffffff;
-    padding: 20px;
-    border-radius: 12px;
-    text-align: center;
-    flex: 1;
-    min-width: 150px;
-    box-shadow: 0 5px 20px rgba(0,0,0,0.1);
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-  }
-  
-  .stat-box:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 8px 25px rgba(0,0,0,0.2);
-  }
-  
-  .stat-box h3 {
-    font-size: 2rem;
-    color: #27ae60;
-    margin-bottom: 8px;
-  }
-  
-  .stat-box p {
-    font-size: 0.95rem;
-    color: #555;
-  }
-  </style>
+}
+</style>
+
   
   <!-- Highlights -->
   <section class="highlights">
@@ -351,7 +324,7 @@
   <!-- Call to Action -->
   <section class="cta">
     <h2>Partner With Us</h2>
-    <p>Looking for a reliable bulk supplier for Ayurvedic & herbal products? Let’s work together. <br>© 2025 Samarthya Healthcare | All Rights Reservedb</p>
+    <p>Looking for a reliable bulk supplier for Ayurvedic & herbal products? Let’s work together. <br>© 2025 Samarthya Healthcare | All Rights Reserved</p>
     <a href="contact.html">Discuss Your Project</a>
   </section>
 
