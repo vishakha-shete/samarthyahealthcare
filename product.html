@@ -213,8 +213,8 @@
   <!-- HERO -->
   <header class="hero" role="banner" aria-label="Samarthya hero">
     <!-- floating accent leaves (decor, replace with your own PNGs if you like) -->
-    <img src="images/baground2.jpg" class="leaf-float" style="left:8%;top:8%;width:120px;border-radius:10px;opacity:.18">
-    <img src="images/baground3.JPG" class="leaf-float" style="right:6%;bottom:8%;width:160px;border-radius:10px;opacity:.14">
+    <img src="images/bagrod.jpg" class="leaf-float" style="left:8%;top:8%;width:120px;border-radius:10px;opacity:.18">
+    <img src="images/bagroun" class="leaf-float" style="right:6%;bottom:8%;width:160px;border-radius:10px;opacity:.14">
     <div class="hero-inner container">
       <h1>Herbal Science-Premium Craft</h1>
       <p>From centuries old Ayurvedic recipes to modern production & QA crafted for efficacy, purity and sensory delight.</p>
@@ -708,5 +708,425 @@ document.getElementById('carouselTrack').addEventListener('keydown', (e)=>{
   if(e.key === 'ArrowLeft') carouselTrack.scrollBy({left: - (320+22), behavior:'smooth'});
 });
 </script>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Samarthya Healthcare | Your Trusted Partner</title>
+  
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+  
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+
+  <style>
+    /* ---------------------------------
+       1. General & Utility Styles
+    --------------------------------- */
+    :root {
+      --primary-green: #0b693e; /* A deeper, more elegant green */
+      --secondary-dark: #2c3e50; /* A soft, professional charcoal */
+      --text-gray: #7f8c8d; /* A subtle gray for body text */
+      --bg-light: #d4f2fa; /* A very soft, clean background */
+      --white: #ffffff;
+      --shadow-light: 0 4px 15px rgba(0, 0, 0, 0.05);
+      --shadow-hover: 0 8px 20px rgba(0, 0, 0, 0.1);
+    }
+
+    body {
+      margin: 0;
+      font-family: 'Poppins', sans-serif;
+      background-color: var(--bg-light);
+      color: var(--secondary-dark);
+      line-height: 1.6;
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: auto;
+      padding: 0 1.5rem;
+    }
+
+    /* ---------------------------------
+       2. Section Styling
+    --------------------------------- */
+    .section {
+      padding: 2rem 0;
+      text-align: center;
+    }
+    
+    .section-title {
+      font-family: 'Playfair Display', serif;
+      font-size: 3rem;
+      font-weight: 700;
+      margin-bottom: 1.1rem;
+      color: var(--secondary-dark);
+    }
+
+    .section-title span {
+      color: var(--primary-green);
+    }
+    
+    .section-intro {
+      max-width: 800px;
+      margin: 0 auto 3rem;
+      font-size: 1.1rem;
+      color: var(--text-gray);
+    }
+
+    /* ---------------------------------
+       3. Simple Scrolling Marquee
+    --------------------------------- */
+    .scroll-font-section {
+      padding: 15px 0;
+      background-color: var(--white);
+      overflow: hidden;
+      border-bottom: 1px solid #e0e0e0;
+    }
+
+    .marquee-text {
+      display: inline-block;
+      white-space: nowrap;
+      animation: marquee-scroll 40s linear infinite;
+    }
+
+    .font-item {
+      font-family: 'Poppins', sans-serif;
+      font-size: 1rem;
+      font-weight: 600;
+      padding: 0 2rem;
+      color: var(--secondary-dark);
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+    }
+    
+    @keyframes marquee-scroll {
+      from { transform: translateX(0%); }
+      to { transform: translateX(-50%); }
+    }
+
+    /* ---------------------------------
+       4. About Section
+    --------------------------------- */
+    .about-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 30px;
+    }
+
+    .about-card {
+      background: var(--white);
+      padding: 2.5rem;
+      border-radius: 10px;
+      text-align: center;
+      box-shadow: var(--shadow-light);
+      transition: all 0.3s ease;
+      border-top: 5px solid var(--primary-green);
+    }
+
+    .about-card:hover {
+      transform: translateY(-8px);
+      box-shadow: var(--shadow-hover);
+    }
+
+    .about-card h3 {
+      font-size: 1.4rem;
+      color: var(--secondary-dark);
+      margin-top: 0;
+      margin-bottom: 0.8rem;
+    }
+
+    .about-card p {
+      font-size: 1rem;
+      color: var(--text-gray);
+    }
+    
+    /* New: About Features List */
+    .about-features-list {
+      margin-top: 4rem;
+      list-style-type: none;
+      padding: 0;
+    }
+
+    .about-features-list li {
+      background-color: var(--white);
+      padding: 1.5rem;
+      margin-bottom: 1rem;
+      border-radius: 8px;
+      text-align: left;
+      font-size: 1.1rem;
+      font-weight: 600;
+      color: var(--secondary-dark);
+      box-shadow: var(--shadow-light);
+      display: flex;
+      align-items: center;
+      transition: all 0.3s ease;
+    }
+    
+    .about-features-list li:hover {
+        transform: scale(1.02);
+        box-shadow: var(--shadow-hover);
+    }
+
+    .about-features-list li i {
+        font-size: 1.5rem;
+        margin-right: 1.5rem;
+        min-width: 40px; /* Prevents text from jumping on smaller screens */
+        text-align: center;
+    }
+
+    .about-features-list li .fa-check-circle {
+        color: #27ae60; /* A clear green for success */
+    }
+
+    .about-features-list li .fa-times-circle {
+        color: #e74c3c; /* A clear red for caution */
+    }
+
+    /* ---------------------------------
+       5. Certified Section (Features)
+    --------------------------------- */
+    .features-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 40px;
+    }
+
+    .feature-card {
+      text-align: center;
+    }
+
+    .icon-container {
+      width: 80px;
+      height: 80px;
+      background-color: var(--primary-green);
+      border-radius: 50%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin: 0 auto 1.5rem;
+      color: var(--white);
+      font-size: 2.5rem;
+      transition: transform 0.3s ease;
+    }
+    
+    .feature-card:hover .icon-container {
+      transform: scale(1.1);
+    }
+
+    .feature-title {
+      font-family: 'Poppins', sans-serif;
+      font-size: 1.3rem;
+      font-weight: 600;
+      color: var(--secondary-dark);
+      margin-bottom: 0.5rem;
+    }
+
+    .feature-description {
+      font-size: 1rem;
+      color: var(--text-gray);
+    }
+
+    /* ---------------------------------
+       6. Leadership Section
+    --------------------------------- */
+    .team-container {
+      display: flex;
+      justify-content: center;
+      gap: 40px;
+      flex-wrap: wrap;
+    }
+
+    .team-member {
+      text-align: center;
+      flex: 0 0 280px;
+    }
+
+    .team-img {
+      width: 300px;
+      height: 300px;
+      border-radius: 50%;
+      overflow: hidden;
+      margin: 0 auto 1rem;
+      border: 5px solid var(--white);
+      transition: all 0.3s ease;
+    }
+
+    .team-img img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: filter 0.3s ease;
+    }
+
+    .team-member:hover .team-img {
+      transform: translateY(-8px);
+      border-color: var(--primary-green);
+      box-shadow: var(--shadow-hover);
+    }
+
+    .team-member:hover .team-img img {
+      filter: grayscale(0%);
+    }
+
+    .team-name {
+      font-family: 'Poppins', sans-serif;
+      font-size: 1.3rem;
+      font-weight: 600;
+      color: var(--secondary-dark);
+    }
+
+    .team-role {
+      font-size: 1rem;
+      color: var(--text-gray);
+    }
+
+    /* ---------------------------------
+       7. Reveal Animation & Responsiveness
+    --------------------------------- */
+    .hidden {
+      opacity: 0;
+      transform: translateY(20px);
+      transition: all 0.6s ease-out;
+    }
+    .show {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* You will also need to add these root variables if they aren't already in your code */
+:root {
+  --primary-green: #0a5e52;
+  --footer-bg: #133e49; /* Dark background for the footer */
+  --footer-text: #adb5bd; /* Light gray text for the footer */
+}
+
+/* --- Footer --- */
+.footer {
+    background-color: var(--footer-bg);
+    color: var(--footer-text);
+    padding: 4rem 0 1rem;
+}
+
+.footer-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 30px;
+    text-align: left;
+}
+
+.footer-col h3 {
+    color: var(--white);
+    font-size: 1.25rem;
+    margin-bottom: 1.5rem;
+}
+
+.footer-col p, .footer-col li, .footer-col a {
+    font-size: 0.95rem;
+    color: var(--footer-text);
+    text-decoration: none;
+    line-height: 1.8;
+}
+
+.footer-col ul {
+    list-style: none;
+    padding: 0;
+}
+
+.footer-col ul li a {
+    display: block;
+    transition: color 0.3s ease;
+}
+
+.footer-col ul li a:hover {
+    color: var(--primary-green);
+}
+
+.social-icons a {
+    font-size: 1.5rem;
+    margin-right: 15px;
+    color: var(--footer-text);
+    transition: color 0.3s ease;
+}
+
+.social-icons a:hover {
+    color: var(--primary-green);
+}
+
+.footer-bottom {
+    text-align: center;
+    margin-top: 3rem;
+    padding-top: 1rem;
+    border-top: 1px solid #679fd3;
+}
+
+/* Note: Make sure you also have the Font Awesome library linked in your <head> section for the icons to appear. */
+  </style>
+</head>
+<body>
+
+
+
+    <footer class="footer">
+      <div class="container">
+          <div class="footer-grid">
+              <div class="footer-col">
+                  <h3>About</h3>
+                  <p>Samarthya Healthcare blends Ayurvedic wisdom with modern manufacturing to create pure, effective health products. A team of dedicated professionals uses their expertise to produce high-quality Ayurvedic powders, proprietary formulations, and herbal oils for holistic well-being.</p>
+                  <div class="social-icons">
+                      <a href="#"><i class="fab fa-facebook"></i></a>
+                      <a href="#"><i class="fab fa-whatsapp"></i></a>
+                  </div>
+              </div>
+              <div class="footer-col">
+                  <h3>Quick Linnks</h3>
+                  <ul>
+                    <li><a href="#">Privacy Policy</a></li>
+                    <li><a href="#">Terms Of Service</a></li>
+                    <li><a href="#">Credits</a></li>
+                    <li><a href="#">FAQ</a></li>
+                </ul>
+              </div>
+              <div class="footer-col">
+                  <h3>Our Service</h3>
+                  <ul>
+                    <li><a href="#">Ayurvedic Products & Manufacturing</a></li>
+                    <li><a href="#">High-Quality Ayurvedic Powders (Churna)</a></li>
+                    <li><a href="#">Proprietary Formulations</a></li>
+                    <li><a href="#"></a>Herbal Oils</li>
+                    <li><a href="#"></a>Third-Party Manufacturing</li>
+                  </ul>
+              </div>
+              <div class="footer-col">
+                  <h3>Free Consultation</h3>
+                  <p>Call Us: +91 8820662982</p>
+                  <p>Free consultation is available to help you find the right
+                    Ayurvedic products for your holistic well-being</p>
+              </div>
+          </div>
+          <div class="footer-bottom">
+              <p>Copyright © 2025 Samarthya Health Care | Powered By Samarthya Infotech</p>
+          </div>
+      </div>
+  </footer>
+  </section>
+
+  <script>
+    const hiddenEls = document.querySelectorAll('.hidden');
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('show');
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.2 });
+    hiddenEls.forEach(el => observer.observe(el));
+  </script>
+
+</body>
+</html>
 </body>
 </html>
